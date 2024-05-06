@@ -11,6 +11,8 @@ export const toValidate = (errorsFromFormValues, formValues, name, value) => {
     case "email":
       if (!value) {
         validate[name] = "Пожалуйста, укажите email";
+      } else if (value === "admin@ya.ru") {
+        validate[name] = "Данный email занят, пожалуйста, укажите другой email";
       }
       break;
 

@@ -49,7 +49,7 @@ export const Image = styled.img`
   position: absolute;
   width: 450px;
   top: 40%;
-  left: 25%;
+  left: 20%;
   animation: ${display} 2.5s forwards;
 `;
 
@@ -71,4 +71,10 @@ export const Button = styled(NavLink)`
   &:hover {
     text-decoration: underline;
   }
+`;
+
+export const ErrorText = styled.p`
+  text-align: center;
+  font-size: 20px;
+  color: #f00;
 `;

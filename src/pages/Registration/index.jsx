@@ -31,12 +31,21 @@ export const Registration = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    toRegister(
-      formValues,
-      errorsFromFormValues,
-      setSuccessfulRegistration,
-      setError
-    );
+    if (
+      !formValues.name ||
+      !formValues.email ||
+      !formValues.password ||
+      !formValues.repeatPassword ||
+      errorsFromFormValues.name ||
+      errorsFromFormValues.email ||
+      errorsFromFormValues.password ||
+      errorsFromFormValues.repeatPassword
+    ) {
+      setSuccessfulRegistration(false);
+      setError(true);
+      return;
+    }
+    toRegister(formValues, setSuccessfulRegistration);
   };
 
   return (
@@ -55,7 +64,9 @@ export const Registration = () => {
               onBlur={(e) => validateFormValues(e.target.name, e.target.value)}
             />
             <Label htmlFor="name" text="Ваше имя: " />
-            {errorsFromFormValues && <div>{errorsFromFormValues.name}</div>}
+            {errorsFromFormValues && (
+              <SC.Error>{errorsFromFormValues.name}</SC.Error>
+            )}
           </FormElement>
           <FormElement>
             <Input
@@ -67,7 +78,9 @@ export const Registration = () => {
               onBlur={(e) => validateFormValues(e.target.name, e.target.value)}
             />
             <Label htmlFor="email" text="Ваш email: " />
-            {errorsFromFormValues && <div>{errorsFromFormValues.email}</div>}
+            {errorsFromFormValues && (
+              <SC.Error>{errorsFromFormValues.email}</SC.Error>
+            )}
           </FormElement>
           <FormElement>
             <Input
@@ -80,7 +93,9 @@ export const Registration = () => {
               onBlur={(e) => validateFormValues(e.target.name, e.target.value)}
             />
             <Label htmlFor="password" text="Придумайте пароль: " />
-            {errorsFromFormValues && <div>{errorsFromFormValues.password}</div>}
+            {errorsFromFormValues && (
+              <SC.Error>{errorsFromFormValues.password}</SC.Error>
+            )}
           </FormElement>
           <FormElement>
             <Input
@@ -94,7 +109,7 @@ export const Registration = () => {
             />
             <Label htmlFor="repeatPassword" text="Повторите пароль: " />
             {errorsFromFormValues && (
-              <div>{errorsFromFormValues.repeatPassword}</div>
+              <SC.Error>{errorsFromFormValues.repeatPassword}</SC.Error>
             )}
           </FormElement>
 

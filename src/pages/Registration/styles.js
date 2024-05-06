@@ -41,3 +41,7 @@ export const ModalText = styled.div`
   text-align: center;
   font-size: 20px;
 `;
+
+export const Error = styled.p`
+  color: #f00;
+`;

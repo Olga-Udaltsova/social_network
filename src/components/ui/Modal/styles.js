@@ -13,10 +13,10 @@ export const Modal = styled.div`
 `;
 
 export const ModalContent = styled.div`
-  max-width: 300px;
+  max-width: 400px;
   width: 100%;
   display: flex;
-  gap: 15px;
+  gap: 30px;
   flex-direction: column;
   border-radius: 20px;
   background: #fff;

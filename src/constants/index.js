@@ -4,3 +4,8 @@ export const VALUES = {
   password: "",
   repeatPassword: "",
 };
+
+export const ADMIN = {
+  email: "admin@ya.ru",
+  password: "admin1234",
+};
