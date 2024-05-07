@@ -1,10 +1,12 @@
+import { USERS } from "../constants";
+
 export const toRegister = (formValues, setSuccessfulRegistration) => {
-  const users = JSON.parse(localStorage.getItem("users"));
+  const users = JSON.parse(localStorage.getItem(USERS));
   const userId = Date.now();
   const newUser = { id: userId, ...formValues };
 
   if (!users) {
-    localStorage.setItem("users", JSON.stringify([newUser]));
+    localStorage.setItem(USERS, JSON.stringify([newUser]));
     setSuccessfulRegistration(true);
     return;
   } else if (users.find((user) => user.email === formValues.email)) {
@@ -13,6 +15,6 @@ export const toRegister = (formValues, setSuccessfulRegistration) => {
     return;
   }
   users.push(newUser);
-  localStorage.setItem("users", JSON.stringify(users));
+  localStorage.setItem(USERS, JSON.stringify(users));
   setSuccessfulRegistration(true);
 };

@@ -1,15 +1,16 @@
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
-import welcome from "../../images/welcome.png";
-import { Container } from "../../components/Container";
-import { FormElement } from "../../components/FormElement";
-import { Input } from "../../components/FormElement/Input";
-import { Label } from "../../components/FormElement/Label";
+import { Container } from "../../components/ui/Container";
+import { FormElement } from "../../components/ui/FormElement";
+import { Input } from "../../components/ui/Input";
+import { Label } from "../../components/ui/Label";
 import { Button } from "../../components/ui/Button";
 import { Heading } from "../../components/ui/Heading";
 import { Modal } from "../../components/ui/Modal";
 import { toLogIn } from "../../helpers/toLogIn";
 import { ADMIN } from "../../constants";
+import welcome from "../../images/welcome.png";
 import * as SC from "./styles";
 
 export const Auth = () => {
@@ -20,6 +21,7 @@ export const Auth = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onChange = (name, value) => {
     setInputData({ ...inputData, [name]: value });
@@ -38,7 +40,7 @@ export const Auth = () => {
       setError(true);
       return;
     }
-    toLogIn(inputData, isChecked, navigate);
+    toLogIn(inputData, isChecked, navigate, dispatch);
   };
 
   return (

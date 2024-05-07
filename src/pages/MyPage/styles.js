@@ -5,9 +5,19 @@ export const Avatar = styled.img`
   border-radius: 125px;
 `;
 
+export const Info = styled.div`
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const Name = styled.p`
-  margin: 15px 0;
-  font-size: 23px;
+  font-size: 25px;
+`;
+
+export const Email = styled.p`
+  font-size: 15px;
 `;
 
 export const Friends = styled.div`

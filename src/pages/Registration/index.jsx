@@ -1,15 +1,15 @@
 import { useState } from "react";
-import form from "../../images/registration_form.svg";
-import { Container } from "../../components/Container";
+import { Container } from "../../components/ui/Container";
 import { Button } from "../../components/ui/Button";
-import { FormElement } from "../../components/FormElement";
-import { Label } from "../../components/FormElement/Label";
-import { Input } from "../../components/FormElement/Input";
+import { FormElement } from "../../components/ui/FormElement";
+import { Label } from "../../components/ui/Label";
+import { Input } from "../../components/ui/Input";
 import { Modal } from "../../components/ui/Modal";
 import { Heading } from "../../components/ui/Heading";
 import { toValidate } from "../../helpers/toValidate";
 import { toRegister } from "../../helpers/toRegister";
 import { VALUES } from "../../constants";
+import form from "../../images/registration_form.svg";
 import * as SC from "./styles";
 
 export const Registration = () => {

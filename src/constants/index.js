@@ -1,3 +1,5 @@
+export const USERS = "users";
+
 export const VALUES = {
   name: "",
   email: "",
