@@ -1,6 +1,6 @@
-import { Container } from "../../components/Container";
+import { Container } from "../../components/ui/Container";
 import { Heading } from "../../components/ui/Heading";
-import { Publication } from "../../components/Publication";
+import { Publication } from "./Publication";
 import { Posts } from "./Posts";
 import publish from "../../images/publication.png";
 import background from "../../images/background.png";

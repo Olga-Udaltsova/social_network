@@ -6,9 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Auth } from "./pages/Auth";
 import { Registration } from "./pages/Registration";
-import { Users } from "./pages/Users";
+import { AllUsers } from "./pages/AllUsers";
 import { Main } from "./pages/Main";
 import { MyPage } from "./pages/MyPage";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "users",
-        element: <Users />,
+        element: <AllUsers />,
       },
     ],
   },
@@ -42,7 +44,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 
