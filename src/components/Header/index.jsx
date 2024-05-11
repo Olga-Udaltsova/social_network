@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Container } from "../ui/Container";
 import { Button } from "../ui/Button";
-import { useDispatch } from "react-redux";
 import { logout } from "../../redux/slices/userSlice";
 import * as SC from "./styles";
 
@@ -12,6 +12,7 @@ export const Header = () => {
     dispatch(logout());
     navigate("/");
   };
+
   return (
     <Container>
       <SC.Header>

@@ -59,12 +59,6 @@ export const Auth = styled.div`
   gap: 30px;
 `;
 
-export const Label = styled.div`
-  display: flex;
-  text-align: center;
-  gap: 10px;
-`;
-
 export const Button = styled(NavLink)`
   text-decoration: none;
   color: #000;

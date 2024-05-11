@@ -2,11 +2,15 @@ import { useSelector } from "react-redux";
 import { Container } from "../../components/ui/Container";
 import { Heading } from "../../components/ui/Heading";
 import { Section } from "../../components/ui/Section";
+import { Friends } from "./Friends";
 import avatar from "../../images/avatar.jpg";
 import * as SC from "./styles";
 
 export const MyPage = () => {
-  const { user } = useSelector((state) => state.user);
+  const { user, friends } = useSelector(
+    (state) => state.currentUser.currentUser
+  );
+
   return (
     <Container>
       <Heading>Мой профиль</Heading>
@@ -21,12 +25,11 @@ export const MyPage = () => {
       <Heading>Мои друзья</Heading>
       <Section>
         <SC.Friends>
-          <div>Пользователь 1</div>
-          <div>Пользователь 2</div>
-          <div>Пользователь 3</div>
-          <div>Пользователь 4</div>
-          <div>Пользователь 5</div>
-          <div>Пользователь 6</div>
+          {friends ? (
+            friends.map((friend) => <Friends key={friend.id} friend={friend} />)
+          ) : (
+            <p>Нет друзей</p>
+          )}
         </SC.Friends>
       </Section>
 
