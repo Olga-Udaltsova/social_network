@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { Container } from "../../components/ui/Container";
 import { Button } from "../../components/ui/Button";
-import { FormElement } from "../../components/ui/FormElement";
-import { Label } from "../../components/ui/Label";
-import { Input } from "../../components/ui/Input";
 import { Modal } from "../../components/ui/Modal";
 import { Heading } from "../../components/ui/Heading";
 import { toValidate } from "../../helpers/toValidate";
 import { toRegister } from "../../helpers/toRegister";
+import { Inputs } from "./Inputs";
 import { VALUES } from "../../constants";
 import form from "../../images/registration_form.svg";
 import * as SC from "./styles";
@@ -54,65 +52,12 @@ export const Registration = () => {
         <SC.Picture src={form} alt="form" />
         <SC.Form onSubmit={onSubmit}>
           <Heading>Регистрация</Heading>
-          <FormElement>
-            <Input
-              type="text"
-              id="name"
-              name="name"
-              value={formValues.name}
-              onChange={(e) => onChange(e.target.name, e.target.value)}
-              onBlur={(e) => validateFormValues(e.target.name, e.target.value)}
-            />
-            <Label htmlFor="name" text="Ваше имя: " />
-            {errorsFromFormValues && (
-              <SC.Error>{errorsFromFormValues.name}</SC.Error>
-            )}
-          </FormElement>
-          <FormElement>
-            <Input
-              type="email"
-              id="email"
-              name="email"
-              value={formValues.email}
-              onChange={(e) => onChange(e.target.name, e.target.value)}
-              onBlur={(e) => validateFormValues(e.target.name, e.target.value)}
-            />
-            <Label htmlFor="email" text="Ваш email: " />
-            {errorsFromFormValues && (
-              <SC.Error>{errorsFromFormValues.email}</SC.Error>
-            )}
-          </FormElement>
-          <FormElement>
-            <Input
-              type="password"
-              autoComplete="off"
-              id="password"
-              name="password"
-              value={formValues.password}
-              onChange={(e) => onChange(e.target.name, e.target.value)}
-              onBlur={(e) => validateFormValues(e.target.name, e.target.value)}
-            />
-            <Label htmlFor="password" text="Придумайте пароль: " />
-            {errorsFromFormValues && (
-              <SC.Error>{errorsFromFormValues.password}</SC.Error>
-            )}
-          </FormElement>
-          <FormElement>
-            <Input
-              type="password"
-              autoComplete="off"
-              id="repeatPassword"
-              name="repeatPassword"
-              value={formValues.repeatPassword}
-              onChange={(e) => onChange(e.target.name, e.target.value)}
-              onBlur={(e) => validateFormValues(e.target.name, e.target.value)}
-            />
-            <Label htmlFor="repeatPassword" text="Повторите пароль: " />
-            {errorsFromFormValues && (
-              <SC.Error>{errorsFromFormValues.repeatPassword}</SC.Error>
-            )}
-          </FormElement>
-
+          <Inputs
+            formValues={formValues}
+            onChange={onChange}
+            validateFormValues={validateFormValues}
+            errorsFromFormValues={errorsFromFormValues}
+          />
           <Button type="submit" onClick={onSubmit}>
             Зарегистрироваться
           </Button>

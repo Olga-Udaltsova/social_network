@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  user: null,
+  currentUser: {
+    user: null,
+    friends: null,
+  },
 };
 
 export const userSlice = createSlice({
@@ -9,14 +12,27 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action) => {
-      state.user = action.payload;
+      state.currentUser.user = action.payload;
     },
     logout: (state) => {
-      state.user = null;
+      state.currentUser.user = null;
+      state.currentUser.friends = null;
+    },
+    addToFriend: (state, action) => {
+      const newFriend = { ...action.payload };
+      state.currentUser.friends = state.currentUser.friends
+        ? [newFriend, ...state.currentUser.friends]
+        : [newFriend];
+    },
+    deleteFromFriends: (state, action) => {
+      state.currentUser.friends = state.currentUser.friends.filter(
+        (friend) => friend.id !== action.payload.id
+      );
     },
   },
 });
 
-export const { login, logout } = userSlice.actions;
+export const { login, logout, addToFriend, deleteFromFriends } =
+  userSlice.actions;
 
 export default userSlice.reducer;
