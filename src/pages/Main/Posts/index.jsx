@@ -1,8 +1,9 @@
-export const Posts = ({ post }) => {
-  const { id, name } = post;
+export const Posts = ({ publicPost }) => {
+  const { id, user, post } = publicPost;
   return (
     <div key={id}>
-      <p>{name}</p>
+      <p>{user.name}</p>
+      <p>{post}</p>
     </div>
   );
 };

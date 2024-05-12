@@ -18,6 +18,7 @@ export const Header = () => {
       <SC.Header>
         <SC.Links>
           <SC.Link to="">Главная</SC.Link>
+          <SC.Link to="publish">Опубликовать пост</SC.Link>
           <SC.Link to="my">Профиль</SC.Link>
           <SC.Link to="users">Пользователи</SC.Link>
         </SC.Links>

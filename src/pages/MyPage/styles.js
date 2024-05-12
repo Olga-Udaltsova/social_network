@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-export const Avatar = styled.img`
-  width: 260px;
-  border-radius: 125px;
-`;
-
 export const Info = styled.div`
   display: flex;
   gap: 5px;
@@ -29,5 +24,5 @@ export const Friends = styled.div`
 export const MyPosts = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 30px;
 `;

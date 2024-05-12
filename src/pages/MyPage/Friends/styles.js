@@ -5,8 +5,3 @@ export const Friend = styled.div`
   align-items: center;
   flex-direction: column;
 `;
-
-export const Avatar = styled.img`
-  width: 100px;
-  border-radius: 50px;
-`;

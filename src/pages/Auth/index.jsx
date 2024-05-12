@@ -46,7 +46,7 @@ export const Auth = () => {
       <SC.Text>Welcome!</SC.Text>
       <SC.Image src={welcome} alt="welcome" />
       <SC.Form>
-        <Heading>Авторизация</Heading>
+        <Heading $center>Авторизация</Heading>
         <SC.Auth>
           <Inputs
             onChange={onChange}
