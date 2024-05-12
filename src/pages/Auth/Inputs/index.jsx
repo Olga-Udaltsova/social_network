@@ -3,7 +3,13 @@ import { Input } from "../../../components/ui/Input";
 import { Label } from "../../../components/ui/Label";
 import * as SC from "./styles";
 
-export const Inputs = ({ onChange, isChecked, handleChange }) => (
+export const Inputs = ({
+  onChange,
+  isAdmin,
+  handleChange,
+  isGuest,
+  setIsGuest,
+}) => (
   <>
     <FormElement>
       <Input
@@ -27,10 +33,19 @@ export const Inputs = ({ onChange, isChecked, handleChange }) => (
       <input
         type="checkbox"
         id="checkbox"
-        checked={isChecked}
+        checked={isAdmin}
         onChange={() => handleChange()}
       />
       <label htmlFor="checkbox">Войти как администратор</label>
+    </SC.Label>
+    <SC.Label>
+      <input
+        type="checkbox"
+        id="guest"
+        checked={isGuest}
+        onChange={() => setIsGuest(!isGuest)}
+      />
+      <label htmlFor="guest">Войти как гость</label>
     </SC.Label>
   </>
 );
