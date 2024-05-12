@@ -17,6 +17,7 @@ export const Auth = () => {
     password: "",
   });
   const [isChecked, setIsChecked] = useState(false);
+  const [isGuest, setIsGuest] = useState(false);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -34,11 +35,11 @@ export const Auth = () => {
   };
 
   const toAuth = () => {
-    if (!inputData.email || !inputData.password) {
+    if ((!inputData.email || !inputData.password) && !isGuest) {
       setError(true);
       return;
     }
-    toLogIn(inputData, isChecked, navigate, dispatch);
+    toLogIn(inputData, isChecked, isGuest, navigate, dispatch);
   };
 
   return (
@@ -52,6 +53,8 @@ export const Auth = () => {
             onChange={onChange}
             isChecked={isChecked}
             handleChange={handleChange}
+            isGuest={isGuest}
+            setIsGuest={setIsGuest}
           />
           <Button onClick={toAuth}>Вход</Button>
           <Button to="reg">Регистрация</Button>

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Container } from "../../components/ui/Container";
 import { Heading } from "../../components/ui/Heading";
@@ -14,12 +15,13 @@ export const MyPage = () => {
   );
   const { posts } = useSelector((state) => state.posts.privatePosts);
   const { publicPosts } = useSelector((state) => state.posts);
-  const filteredPosts = publicPosts.filter((item) => {
-    if (item.user === user) {
-      return item;
-    }
-  });
-  const myPosts = filteredPosts.map((filter) => filter.post).concat(posts);
+  const [filteredPosts, setFilteredPosts] = useState(
+    publicPosts?.filter((item) => {
+      if (item.user === user) {
+        return item;
+      }
+    })
+  );
 
   return (
     <Container>
@@ -44,15 +46,27 @@ export const MyPage = () => {
       </Section>
 
       <Heading>Мои посты</Heading>
-      <Section>
+      <SC.SectionPosts>
+        <h3>Общедоступные посты</h3>
         <SC.MyPosts>
-          {myPosts ? (
-            myPosts.map((post) => <Posts post={post} />)
+          {filteredPosts ? (
+            filteredPosts.map((filteredPost) => (
+              <Posts key={filteredPost.id} myPost={filteredPost} />
+            ))
           ) : (
-            <NoContent>Нет постов</NoContent>
+            <NoContent>Нет таких постов</NoContent>
           )}
         </SC.MyPosts>
-      </Section>
+
+        <h3>Посты только для друзей</h3>
+        <SC.MyPosts>
+          {posts ? (
+            posts.map((post) => <Posts key={post} myPost={post} />)
+          ) : (
+            <NoContent>Нет таких постов</NoContent>
+          )}
+        </SC.MyPosts>
+      </SC.SectionPosts>
     </Container>
   );
 };
