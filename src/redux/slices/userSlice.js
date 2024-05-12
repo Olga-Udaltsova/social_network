@@ -19,7 +19,7 @@ export const userSlice = createSlice({
       state.currentUser.friends = null;
     },
     addToFriend: (state, action) => {
-      const newFriend = { ...action.payload };
+      const newFriend = action.payload;
       state.currentUser.friends = state.currentUser.friends
         ? [newFriend, ...state.currentUser.friends]
         : [newFriend];

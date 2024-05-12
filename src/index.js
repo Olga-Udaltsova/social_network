@@ -11,6 +11,7 @@ import { Main } from "./pages/Main";
 import { MyPage } from "./pages/MyPage";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
+import { Publication } from "./pages/Publication";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "my",
         element: <MyPage />,
+      },
+      {
+        path: "publish",
+        element: <Publication />,
       },
       {
         path: "users",

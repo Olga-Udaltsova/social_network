@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "../../../components/ui/Button";
+import { Avatar } from "../../../components/ui/Avatar";
 import {
   addToFriend,
   deleteFromFriends,
 } from "../../../redux/slices/userSlice";
-import avatar from "../../../images/avatar.jpg";
 import * as SC from "./styles";
 
 export const Users = ({ person }) => {
@@ -29,7 +29,7 @@ export const Users = ({ person }) => {
   return (
     <SC.Div key={id}>
       <SC.User>
-        <SC.Image src={avatar} alt="avatar" />
+        <Avatar $value="150px" $radius="25px" />
         <div>
           <SC.Text>{name}</SC.Text>
           <SC.Text $email>{email}</SC.Text>

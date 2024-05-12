@@ -17,18 +17,16 @@ export const AllUsers = () => {
 
   return (
     <Container>
-      <SC.Content>
-        <Heading>Пользователи</Heading>
-        {people ? (
-          <SC.Users>
-            {people.map((person) => (
-              <Users key={person.id} person={person} />
-            ))}
-          </SC.Users>
-        ) : (
-          <NoContent>Пользователей нет</NoContent>
-        )}
-      </SC.Content>
+      <Heading $center>Пользователи</Heading>
+      {people ? (
+        <SC.Users>
+          {people.map((person) => (
+            <Users key={person.id} person={person} />
+          ))}
+        </SC.Users>
+      ) : (
+        <NoContent>Пользователей нет</NoContent>
+      )}
     </Container>
   );
 };

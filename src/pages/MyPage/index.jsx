@@ -2,20 +2,30 @@ import { useSelector } from "react-redux";
 import { Container } from "../../components/ui/Container";
 import { Heading } from "../../components/ui/Heading";
 import { Section } from "../../components/ui/Section";
+import { Avatar } from "../../components/ui/Avatar";
+import { NoContent } from "../../components/ui/NoContent";
 import { Friends } from "./Friends";
-import avatar from "../../images/avatar.jpg";
+import { Posts } from "./Posts";
 import * as SC from "./styles";
 
 export const MyPage = () => {
   const { user, friends } = useSelector(
     (state) => state.currentUser.currentUser
   );
+  const { posts } = useSelector((state) => state.posts.privatePosts);
+  const { publicPosts } = useSelector((state) => state.posts);
+  const filteredPosts = publicPosts.filter((item) => {
+    if (item.user === user) {
+      return item;
+    }
+  });
+  const myPosts = filteredPosts.map((filter) => filter.post).concat(posts);
 
   return (
     <Container>
       <Heading>Мой профиль</Heading>
       <Section>
-        <SC.Avatar src={avatar} alt="avatar" />
+        <Avatar $value="260px" $radius="125px" />
         <SC.Info>
           <SC.Name>{user.name}</SC.Name>
           <SC.Email>{user.email}</SC.Email>
@@ -28,7 +38,7 @@ export const MyPage = () => {
           {friends ? (
             friends.map((friend) => <Friends key={friend.id} friend={friend} />)
           ) : (
-            <p>Нет друзей</p>
+            <NoContent>Нет друзей</NoContent>
           )}
         </SC.Friends>
       </Section>
@@ -36,14 +46,11 @@ export const MyPage = () => {
       <Heading>Мои посты</Heading>
       <Section>
         <SC.MyPosts>
-          <div>Пост 1</div>
-          <div>Пост 2</div>
-          <div>Пост 3</div>
-          <div>Пост 4</div>
-          <div>Пост 1</div>
-          <div>Пост 2</div>
-          <div>Пост 3</div>
-          <div>Пост 4</div>
+          {myPosts ? (
+            myPosts.map((post) => <Posts post={post} />)
+          ) : (
+            <NoContent>Нет постов</NoContent>
+          )}
         </SC.MyPosts>
       </Section>
     </Container>

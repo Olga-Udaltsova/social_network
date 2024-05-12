@@ -1,48 +1,25 @@
+import { useSelector } from "react-redux";
 import { Container } from "../../components/ui/Container";
 import { Heading } from "../../components/ui/Heading";
-import { Publication } from "./Publication";
+import { NoContent } from "../../components/ui/NoContent";
 import { Posts } from "./Posts";
-import publish from "../../images/publication.png";
-import background from "../../images/background.png";
 import * as SC from "./styles";
 
 export const Main = () => {
-  const posts = [
-    {
-      id: 1,
-      name: "Пост 1",
-    },
-    {
-      id: 2,
-      name: "Пост 2",
-    },
-    {
-      id: 3,
-      name: "Пост 3",
-    },
-    {
-      id: 4,
-      name: "Пост 4",
-    },
-    {
-      id: 5,
-      name: "Пост 5",
-    },
-  ];
+  const { publicPosts } = useSelector((state) => state.posts);
 
   return (
     <Container>
-      <SC.Main>
-        <Heading>Посты</Heading>
-        <SC.Image src={publish} alt="picture_publication" />
-        <SC.Background src={background} alt="background" />
-        <SC.PostsSection>
-          <Publication />
-          {posts.map((post) => (
-            <Posts key={post.id} post={post} />
-          ))}
-        </SC.PostsSection>
-      </SC.Main>
+      <Heading $center>Посты</Heading>
+      <SC.PostsSection>
+        {publicPosts ? (
+          publicPosts.map((publicPost) => (
+            <Posts key={publicPost.id} publicPost={publicPost} />
+          ))
+        ) : (
+          <NoContent>Нет постов</NoContent>
+        )}
+      </SC.PostsSection>
     </Container>
   );
 };

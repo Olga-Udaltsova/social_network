@@ -25,7 +25,6 @@ export const Form = styled.div`
   padding: 30px;
   display: flex;
   flex-direction: column;
-  text-align: center;
   gap: 30px;
   border-radius: 10px;
   box-shadow: 15px 11px 12px 8px rgba(34, 60, 80, 0.2);
