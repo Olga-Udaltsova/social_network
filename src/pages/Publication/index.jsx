@@ -39,6 +39,7 @@ export const Publication = () => {
             value={post}
             onChange={(e) => setPost(e.target.value)}
             placeholder="Введите текст"
+            autoFocus
           />
           <SC.Input>
             <input

@@ -17,7 +17,7 @@ export const MyPage = () => {
   const { publicPosts } = useSelector((state) => state.posts);
   const [filteredPosts, setFilteredPosts] = useState(
     publicPosts?.filter((item) => {
-      if (item.user === user) {
+      if (item.user.email === user.email) {
         return item;
       }
     })
@@ -61,7 +61,7 @@ export const MyPage = () => {
         <h3>Посты только для друзей</h3>
         <SC.MyPosts>
           {posts ? (
-            posts.map((post) => <Posts key={post} myPost={post} />)
+            posts.map((post) => <Posts key={post.id} myPost={post} />)
           ) : (
             <NoContent>Нет таких постов</NoContent>
           )}

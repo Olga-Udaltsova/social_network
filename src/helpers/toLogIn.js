@@ -13,7 +13,7 @@ export const toLogIn = (inputData, isChecked, isGuest, navigate, dispatch) => {
     inputData.password === ADMIN.password &&
     isChecked;
 
-  if (!userInLS && !admin) {
+  if (!userInLS && !admin && !isGuest) {
     alert("Пользователя с таким email не существует");
     return;
   } else if ((currentUser || admin) && !isGuest) {
