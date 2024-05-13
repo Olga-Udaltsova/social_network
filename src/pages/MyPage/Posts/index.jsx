@@ -6,7 +6,7 @@ export const Posts = ({ myPost }) => {
 
   return (
     <SC.Post key={id}>
-      <p>{post || myPost}</p>
+      <p>{post}</p>
       <Button>Редактировать пост</Button>
     </SC.Post>
   );

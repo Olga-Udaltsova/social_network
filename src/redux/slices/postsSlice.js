@@ -13,11 +13,16 @@ export const postsSlice = createSlice({
   initialState,
   reducers: {
     toAddPrivate: (state, action) => {
-      const newPost = { ...action.payload };
-      state.privatePosts.author = newPost.user;
+      const publication = { ...action.payload };
+      publication.id = new Date().getTime();
+      const newPost = {
+        id: publication.id,
+        post: publication.post,
+      };
+      state.privatePosts.author = publication.user;
       state.privatePosts.posts = state.privatePosts.posts
-        ? [newPost.post, ...state.privatePosts.posts]
-        : [newPost.post];
+        ? [newPost, ...state.privatePosts.posts]
+        : [newPost];
     },
     toAddPublic: (state, action) => {
       const newPost = { ...action.payload };
