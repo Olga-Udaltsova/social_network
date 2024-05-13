@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Container } from "../../components/ui/Container";
 import { Heading } from "../../components/ui/Heading";
@@ -15,13 +14,11 @@ export const MyPage = () => {
   );
   const { posts } = useSelector((state) => state.posts.privatePosts);
   const { publicPosts } = useSelector((state) => state.posts);
-  const [filteredPosts, setFilteredPosts] = useState(
-    publicPosts?.filter((item) => {
-      if (item.user.email === user.email) {
-        return item;
-      }
-    })
-  );
+  const filteredPosts = publicPosts.filter((item) => {
+    if (item.user.email === user.email) {
+      return item;
+    }
+  });
 
   return (
     <Container>
