@@ -3,7 +3,7 @@ import { Container } from "../../components/ui/Container";
 import { Heading } from "../../components/ui/Heading";
 import { Button } from "../../components/ui/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { toAddPrivate, toAddPublic } from "../../redux/slices/postsSlice";
+import { addToPrivate, addToPublic } from "../../redux/slices/postsSlice";
 import publish from "../../images/publication.png";
 import background from "../../images/background.png";
 import * as SC from "./styles";
@@ -19,11 +19,11 @@ export const Publication = () => {
       alert("Введите текст!");
       return;
     } else if (isChecked) {
-      dispatch(toAddPrivate({ user, post }));
+      dispatch(addToPrivate({ user, post }));
       setPost("");
       return;
     }
-    dispatch(toAddPublic({ user, post }));
+    dispatch(addToPublic({ user, post }));
     setPost("");
   };
 
