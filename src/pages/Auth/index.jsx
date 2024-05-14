@@ -6,6 +6,7 @@ import { Button } from "../../components/ui/Button";
 import { Heading } from "../../components/ui/Heading";
 import { Modal } from "../../components/ui/Modal";
 import { Inputs } from "./Inputs";
+import { Checkboxs } from "./Checkboxs";
 import { toLogIn } from "../../helpers/toLogIn";
 import { ADMIN } from "../../constants";
 import welcome from "../../images/welcome.png";
@@ -49,8 +50,8 @@ export const Auth = () => {
       <SC.Form>
         <Heading $center>Авторизация</Heading>
         <SC.Auth>
-          <Inputs
-            onChange={onChange}
+          <Inputs onChange={onChange} />
+          <Checkboxs
             isChecked={isChecked}
             handleChange={handleChange}
             isGuest={isGuest}
