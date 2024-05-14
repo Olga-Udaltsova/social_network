@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const Friend = styled.div`
+export const Friends = styled.div`
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
 `;

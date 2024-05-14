@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
-export const Post = styled.div`
-  max-width: 250px;
-  width: 100%;
+export const MyPosts = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 10px 0;
+`;
+
+export const SectionPosts = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 15px;
-  text-align: center;
-  padding: 10px 20px;
-  border: 2px solid #6261ba;
-  border-radius: 15px;
-  word-wrap: break-word;
+  margin: 20px 0;
 `;

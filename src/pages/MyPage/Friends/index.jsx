@@ -1,12 +1,20 @@
-import { Avatar } from "../../../components/ui/Avatar";
+import { useSelector } from "react-redux";
+import { Section } from "../../../components/ui/Section";
+import { NoContent } from "../../../components/ui/NoContent";
+import { Friend } from "./Friend";
 import * as SC from "./styles";
 
-export const Friends = ({ friend }) => {
-  const { id, name } = friend;
+export const Friends = () => {
+  const { friends } = useSelector((state) => state.currentUser.currentUser);
   return (
-    <SC.Friend key={id}>
-      <Avatar $value="100px" $radius="50px" />
-      <p>{name}</p>
-    </SC.Friend>
+    <Section>
+      <SC.Friends>
+        {friends ? (
+          friends.map((friend) => <Friend key={friend.id} friend={friend} />)
+        ) : (
+          <NoContent>Нет друзей</NoContent>
+        )}
+      </SC.Friends>
+    </Section>
   );
 };

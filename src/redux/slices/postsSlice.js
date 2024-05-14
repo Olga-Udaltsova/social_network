@@ -42,10 +42,8 @@ export const postsSlice = createSlice({
     editPublic: (state, action) => {
       state.publicPosts = state.publicPosts.map((post) => {
         if (post.id === action.payload.id) {
-          return {...post, post: action.payload.post}
-          /* return ([post = action.payload.post, ...post]); */
+          return { ...post, post: action.payload.post };
         }
-
         return post;
       });
     },
