@@ -7,7 +7,7 @@ import { Friends } from "./Friends";
 import { Posts } from "./Posts";
 
 export const MyPage = () => {
-  const { user } = useSelector((state) => state.currentUser.currentUser);
+  const { user } = useSelector((state) => state.currentUser);
   return (
     <Container>
       {user ? (

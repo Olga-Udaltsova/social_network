@@ -5,12 +5,13 @@ import { Avatar } from "../../../components/ui/Avatar";
 import {
   addToFriend,
   deleteFromFriends,
-} from "../../../redux/slices/userSlice";
+} from "../../../redux/slices/friendsSlice";
 import * as SC from "./styles";
 
 export const Users = ({ person }) => {
   const { id, name, email } = person;
-  const { friends } = useSelector((state) => state.currentUser.currentUser);
+  const { user } = useSelector((state) => state.currentUser);
+  const { friends } = useSelector((state) => state.friends);
   const [inFriend, setInFriend] = useState(
     friends?.some((item) => item.id === person.id)
   );
@@ -18,11 +19,11 @@ export const Users = ({ person }) => {
 
   const toggleFriend = (person) => {
     if (!inFriend) {
-      dispatch(addToFriend(person));
+      dispatch(addToFriend({ user, person }));
       setInFriend(true);
       return;
     }
-    dispatch(deleteFromFriends(person));
+    dispatch(deleteFromFriends({ user, person }));
     setInFriend(false);
   };
 

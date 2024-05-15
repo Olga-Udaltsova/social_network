@@ -4,7 +4,7 @@ import { Post } from "./Post";
 import * as SC from "./styles";
 
 export const Posts = () => {
-  const { user } = useSelector((state) => state.currentUser.currentUser);
+  const { user } = useSelector((state) => state.currentUser);
   const { posts } = useSelector((state) => state.posts.privatePosts);
   const { publicPosts } = useSelector((state) => state.posts);
   const filteredPosts = publicPosts?.filter((item) => {
