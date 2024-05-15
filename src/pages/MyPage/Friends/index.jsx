@@ -5,12 +5,20 @@ import { Friend } from "./Friend";
 import * as SC from "./styles";
 
 export const Friends = () => {
-  const { friends } = useSelector((state) => state.currentUser.currentUser);
+  const { user } = useSelector((state) => state.currentUser);
+  const { friends } = useSelector((state) => state.friends);
+
+  const myFriends = friends?.filter((friend) => {
+    if (friend.user.id === user.id) {
+      return friend;
+    }
+  });
+
   return (
     <Section>
       <SC.Friends>
-        {friends ? (
-          friends.map((friend) => <Friend key={friend.id} friend={friend} />)
+        {myFriends ? (
+          myFriends.map((friend) => <Friend key={friend.id} friend={friend} />)
         ) : (
           <NoContent>Нет друзей</NoContent>
         )}

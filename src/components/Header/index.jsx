@@ -6,7 +6,7 @@ import { logout } from "../../redux/slices/userSlice";
 import * as SC from "./styles";
 
 export const Header = () => {
-  const { user } = useSelector((state) => state.currentUser.currentUser);
+  const { user } = useSelector((state) => state.currentUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logOut = () => {

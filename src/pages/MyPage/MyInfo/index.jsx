@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import * as SC from "./styles";
 
 export const MyInfo = () => {
-  const { user } = useSelector((state) => state.currentUser.currentUser);
+  const { user } = useSelector((state) => state.currentUser);
   const { name, email } = user;
   return (
     <Section>

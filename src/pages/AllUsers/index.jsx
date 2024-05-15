@@ -8,7 +8,7 @@ import { USERS } from "../../constants";
 import * as SC from "./styles";
 
 export const AllUsers = () => {
-  const { user } = useSelector((state) => state.currentUser.currentUser);
+  const { user } = useSelector((state) => state.currentUser);
   const [people, setPeople] = useState(
     JSON.parse(localStorage.getItem(USERS)).filter(
       (item) => item.id !== user.id

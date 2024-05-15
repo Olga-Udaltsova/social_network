@@ -12,7 +12,7 @@ export const Publication = () => {
   const [post, setPost] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.currentUser.currentUser);
+  const { user } = useSelector((state) => state.currentUser);
 
   const toPublish = () => {
     if (!post) {
