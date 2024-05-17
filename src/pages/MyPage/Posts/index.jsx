@@ -9,7 +9,7 @@ export const Posts = () => {
   const { publicPosts } = useSelector((state) => state.posts);
   const filteredPosts = publicPosts?.filter((item) => {
     if (item.user.email === user.email) {
-      return item;
+      console.log(item);
     }
   });
   return (
