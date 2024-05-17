@@ -1,10 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
-  privatePosts: {
-    author: null,
-    posts: null,
-  },
+  privatePosts: null,
   publicPosts: null,
 };
 
@@ -19,6 +16,33 @@ export const postsSlice = createSlice({
         id: publication.id,
         post: publication.post,
       };
+
+      if (!state.privatePosts) {
+        state.privatePosts = [{ user: publication.user, list: [newPost] }];
+        return;
+      }
+      const currentUser = state.privatePosts.some(
+        (item) => current(item.user) === publication.user
+      );
+
+      if (currentUser) {
+        const updatedList = state.privatePosts.map((item) => {
+          if (current(item.user) === publication.user) {
+            return {
+              ...item,
+              list: [newPost, ...item.list],
+            };
+          }
+          return item;
+        });
+        state.privatePosts = updatedList;
+        return;
+      }
+      state.privatePosts = [
+        { user: publication.user, lis: [newPost] },
+        ...state.privatePosts,
+      ];
+
       state.privatePosts.author = publication.user;
       state.privatePosts.posts = state.privatePosts.posts
         ? [newPost, ...state.privatePosts.posts]
