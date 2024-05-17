@@ -38,7 +38,7 @@ export const Users = ({ person }) => {
         </div>
       </SC.User>
       <Button onClick={() => toggleFriend(person)}>
-        {!inFriend ? "Добавить в друзья" : "Удалить из друзей"}
+        {inFriend ? "Удалить из друзей" : "Добавить в друзья"}
       </Button>
     </SC.Div>
   );
