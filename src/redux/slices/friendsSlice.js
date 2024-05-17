@@ -10,14 +10,10 @@ export const friendsSlice = createSlice({
   reducers: {
     addToFriend: (state, action) => {
       const request = { ...action.payload };
-      request.id = new Date().getTime();
-      const newFriend = {
-        id: request.id,
-        friend: request.person,
-      };
-
       if (!state.friends) {
-        state.friends = [{ user: request.user, listOfFriends: [newFriend] }];
+        state.friends = [
+          { user: request.user, listOfFriends: [request.person] },
+        ];
         return;
       }
 
@@ -30,7 +26,7 @@ export const friendsSlice = createSlice({
           if (current(friend.user) === request.user) {
             return {
               ...friend,
-              listOfFriends: [newFriend, ...friend.listOfFriends],
+              listOfFriends: [request.person, ...friend.listOfFriends],
             };
           }
           return friend;
@@ -39,7 +35,7 @@ export const friendsSlice = createSlice({
         return;
       }
       state.friends = [
-        { user: request.user, listOfFriends: [newFriend] },
+        { user: request.user, listOfFriends: [request.person] },
         ...state.friends,
       ];
     },
@@ -57,7 +53,7 @@ export const friendsSlice = createSlice({
             return {
               ...friend,
               listOfFriends: current(friend.listOfFriends).filter(
-                (friend) => friend.friend.id !== request.person.id
+                (friend) => friend.id !== request.person.id
               ),
             };
           }

@@ -6,14 +6,16 @@ import {
   addToFriend,
   deleteFromFriends,
 } from "../../../redux/slices/friendsSlice";
+import { toFilter } from "../../../helpers/toFilter";
 import * as SC from "./styles";
 
 export const Users = ({ person }) => {
   const { id, name, email } = person;
   const { user } = useSelector((state) => state.currentUser);
   const { friends } = useSelector((state) => state.friends);
+  const myFriends = toFilter(user, friends);
   const [inFriend, setInFriend] = useState(
-    friends?.some((item) => item.id === person.id)
+    myFriends?.listOfFriends?.some((item) => item.id === person.id)
   );
   const dispatch = useDispatch();
 
@@ -26,7 +28,6 @@ export const Users = ({ person }) => {
     dispatch(deleteFromFriends({ user, person }));
     setInFriend(false);
   };
-
   return (
     <SC.Div key={id}>
       <SC.User>
@@ -37,7 +38,7 @@ export const Users = ({ person }) => {
         </div>
       </SC.User>
       <Button onClick={() => toggleFriend(person)}>
-        {inFriend ? "В друзьях" : "Добавить в друзья"}
+        {inFriend ? "Удалить из друзей" : "Добавить в друзья"}
       </Button>
     </SC.Div>
   );
