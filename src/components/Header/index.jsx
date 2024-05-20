@@ -10,7 +10,7 @@ export const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logOut = () => {
-    dispatch(logout());
+    dispatch(logout(user));
     navigate("/");
   };
 
