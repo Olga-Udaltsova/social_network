@@ -1,5 +1,5 @@
 import { USERS, ADMIN } from "../constants";
-import { login } from "../redux/slices/userSlice";
+import { login, loginAsAdmin } from "../redux/slices/userSlice";
 
 export const toLogIn = (inputData, isChecked, navigate, dispatch) => {
   const users = JSON.parse(localStorage.getItem(USERS));
@@ -16,8 +16,12 @@ export const toLogIn = (inputData, isChecked, navigate, dispatch) => {
   if (!userInLS && !admin) {
     alert("Пользователя с таким email не существует");
     return;
-  } else if (currentUser || admin) {
+  } else if (currentUser) {
     dispatch(login(currentUser));
+    navigate("/main");
+    return;
+  } else if (admin) {
+    dispatch(loginAsAdmin(admin));
     navigate("/main");
     return;
   }

@@ -18,14 +18,18 @@ export const Button = styled(NavLink)`
       0 0 10px 4px rgba(98, 97, 186, 1);
   }
 
+  &.delete,
+  &.close {
+    background: #f00;
+    color: #fff;
+    box-shadow: none;
+  }
+
   &.close {
     position: absolute;
     top: 5%;
     right: 10%;
     font-size: 20px;
-    background: #f00;
-    color: #fff;
-    box-shadow: none;
   }
   &.close:hover {
     box-shadow: 0 0 40px 40px rgba(181, 34, 34, 0.7) inset,

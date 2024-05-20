@@ -6,16 +6,18 @@ import { Posts } from "./Posts";
 import * as SC from "./styles";
 
 export const Main = () => {
-  const { publicPosts } = useSelector((state) => state.posts);
+  const { admin } = useSelector((state) => state.currentUser);
+  const { privatePosts, publicPosts, allPosts } = useSelector(
+    (state) => state.posts
+  );
+  const posts = admin ? allPosts : publicPosts;
 
   return (
     <Container>
       <Heading $center>Посты</Heading>
       <SC.PostsSection>
-        {publicPosts ? (
-          publicPosts.map((publicPost) => (
-            <Posts key={publicPost.id} publicPost={publicPost} />
-          ))
+        {posts ? (
+          posts.map((post) => <Posts key={post.id} publication={post} />)
         ) : (
           <NoContent>Нет постов</NoContent>
         )}
