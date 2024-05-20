@@ -6,7 +6,7 @@ import { Button } from "../../components/ui/Button";
 import { Heading } from "../../components/ui/Heading";
 import { Modal } from "../../components/ui/Modal";
 import { Inputs } from "./Inputs";
-import { Checkboxs } from "./Checkboxs";
+import { Checkbox } from "./Checkbox";
 import { toLogIn } from "../../helpers/toLogIn";
 import { ADMIN } from "../../constants";
 import welcome from "../../images/welcome.png";
@@ -18,7 +18,6 @@ export const Auth = () => {
     password: "",
   });
   const [isChecked, setIsChecked] = useState(false);
-  const [isGuest, setIsGuest] = useState(false);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -36,11 +35,11 @@ export const Auth = () => {
   };
 
   const toAuth = () => {
-    if ((!inputData.email || !inputData.password) && !isGuest) {
+    if (!inputData.email || !inputData.password) {
       setError(true);
       return;
     }
-    toLogIn(inputData, isChecked, isGuest, navigate, dispatch);
+    toLogIn(inputData, isChecked, navigate, dispatch);
   };
 
   return (
@@ -51,12 +50,7 @@ export const Auth = () => {
         <Heading $center>Авторизация</Heading>
         <SC.Auth>
           <Inputs onChange={onChange} />
-          <Checkboxs
-            isChecked={isChecked}
-            handleChange={handleChange}
-            isGuest={isGuest}
-            setIsGuest={setIsGuest}
-          />
+          <Checkbox isChecked={isChecked} handleChange={handleChange} />
           <Button onClick={toAuth}>Вход</Button>
           <Button to="reg">Регистрация</Button>
         </SC.Auth>
