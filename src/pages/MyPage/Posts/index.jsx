@@ -6,8 +6,7 @@ import * as SC from "./styles";
 
 export const Posts = () => {
   const { user } = useSelector((state) => state.currentUser);
-  const { privatePosts } = useSelector((state) => state.posts);
-  const { publicPosts } = useSelector((state) => state.posts);
+  const { publicPosts, privatePosts } = useSelector((state) => state.posts);
   const myPublicPosts = toFilterPosts(user, publicPosts);
   const myPrivatePosts = toFilterPosts(user, privatePosts);
 

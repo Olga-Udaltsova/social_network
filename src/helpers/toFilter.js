@@ -8,10 +8,14 @@ export const toFilterFriends = (user, list) => {
 };
 
 export const toFilterPosts = (user, list) => {
-  const value = list?.filter((item) => {
+  let arr = [];
+  if (!list) {
+    return arr;
+  }
+  arr = list.filter((item) => {
     if (item.user.email === user.email) {
       return item;
     }
   });
-  return value;
+  return arr;
 };
