@@ -1,7 +1,7 @@
 import { USERS, ADMIN } from "../constants";
 import { login } from "../redux/slices/userSlice";
 
-export const toLogIn = (inputData, isChecked, isGuest, navigate, dispatch) => {
+export const toLogIn = (inputData, isChecked, navigate, dispatch) => {
   const users = JSON.parse(localStorage.getItem(USERS));
   const userInLS = users.some((user) => user.email === inputData.email);
   const currentUser = users.find(
@@ -13,14 +13,11 @@ export const toLogIn = (inputData, isChecked, isGuest, navigate, dispatch) => {
     inputData.password === ADMIN.password &&
     isChecked;
 
-  if (!userInLS && !admin && !isGuest) {
+  if (!userInLS && !admin) {
     alert("Пользователя с таким email не существует");
     return;
-  } else if ((currentUser || admin) && !isGuest) {
+  } else if (currentUser || admin) {
     dispatch(login(currentUser));
-    navigate("/main");
-    return;
-  } else if (isGuest) {
     navigate("/main");
     return;
   }
