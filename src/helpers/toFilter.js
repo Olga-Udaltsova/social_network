@@ -12,7 +12,7 @@ export const toFilterPosts = (user, list) => {
   if (!list) {
     return arr;
   }
-  arr = list?.filter((item) => {
+  arr = list.filter((item) => {
     if (item.user.email === user.email) {
       return item;
     }
