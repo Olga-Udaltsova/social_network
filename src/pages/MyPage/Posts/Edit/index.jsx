@@ -7,8 +7,8 @@ import * as SC from "./styles";
 
 export const Edit = ({ values, setEdit }) => {
   const [modifiedPost, setModifiedPost] = useState(values);
-  const { posts } = useSelector((state) => state.posts.privatePosts);
-  const privatePosts = posts?.find((item) => item.id === values.id);
+  const { privatePosts } = useSelector((state) => state.posts);
+  const editablePost = privatePosts?.find((item) => item.id === values.id);
   const dispatch = useDispatch();
 
   const onChange = (value) => {
@@ -21,7 +21,7 @@ export const Edit = ({ values, setEdit }) => {
       setEdit(true);
       return;
     }
-    if (privatePosts) {
+    if (editablePost) {
       dispatch(editPrivate(modifiedPost));
       setEdit(false);
       return;

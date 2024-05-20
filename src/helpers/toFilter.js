@@ -1,9 +1,17 @@
-export const toFilter = (user, list) => {
+export const toFilterFriends = (user, list) => {
   const value = list?.find((item) => {
     if (item.user.id === user.id) {
       return item;
     }
-    return;
+  });
+  return value;
+};
+
+export const toFilterPosts = (user, list) => {
+  const value = list?.filter((item) => {
+    if (item.user.email === user.email) {
+      return item;
+    }
   });
   return value;
 };

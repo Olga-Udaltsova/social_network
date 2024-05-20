@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   privatePosts: null,
@@ -10,42 +10,10 @@ export const postsSlice = createSlice({
   initialState,
   reducers: {
     addToPrivate: (state, action) => {
-      const publication = { ...action.payload };
-      publication.id = new Date().getTime();
-      const newPost = {
-        id: publication.id,
-        post: publication.post,
-      };
-
-      if (!state.privatePosts) {
-        state.privatePosts = [{ user: publication.user, list: [newPost] }];
-        return;
-      }
-      const currentUser = state.privatePosts.some(
-        (item) => current(item.user) === publication.user
-      );
-
-      if (currentUser) {
-        const updatedList = state.privatePosts.map((item) => {
-          if (current(item.user) === publication.user) {
-            return {
-              ...item,
-              list: [newPost, ...item.list],
-            };
-          }
-          return item;
-        });
-        state.privatePosts = updatedList;
-        return;
-      }
-      state.privatePosts = [
-        { user: publication.user, lis: [newPost] },
-        ...state.privatePosts,
-      ];
-
-      state.privatePosts.author = publication.user;
-      state.privatePosts.posts = state.privatePosts.posts
-        ? [newPost, ...state.privatePosts.posts]
+      const newPost = { ...action.payload };
+      newPost.id = new Date().getTime();
+      state.privatePosts = state.privatePosts
+        ? [newPost, ...state.privatePosts]
         : [newPost];
     },
     addToPublic: (state, action) => {
@@ -56,9 +24,9 @@ export const postsSlice = createSlice({
         : [newPost];
     },
     editPrivate: (state, action) => {
-      state.privatePosts.posts = state.privatePosts.posts.map((post) => {
+      state.privatePosts = state.privatePosts.map((post) => {
         if (post.id === action.payload.id) {
-          return action.payload;
+          return { ...post, post: action.payload.post };
         }
         return post;
       });
