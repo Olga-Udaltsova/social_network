@@ -33,6 +33,9 @@ export const Edit = ({ values, setEdit }) => {
   return (
     <Modal>
       <SC.Form>
+        <Button className="close" onClick={() => setEdit(false)}>
+          Закрыть
+        </Button>
         <SC.Label htmlFor="textPost">Текст поста</SC.Label>
         <SC.Input
           id="textPost"
