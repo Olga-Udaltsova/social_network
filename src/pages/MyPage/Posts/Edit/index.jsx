@@ -1,16 +1,13 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Modal } from "../../../../components/ui/Modal";
 import { Button } from "../../../../components/ui/Button";
-import { editPrivate, editPublic } from "../../../../redux/slices/postsSlice";
+import { editPost } from "../../../../redux/slices/postsSlice";
 import * as SC from "./styles";
 
 export const Edit = ({ values, setEdit }) => {
   const [modifiedPost, setModifiedPost] = useState(values);
-  const { privatePosts } = useSelector((state) => state.posts);
-  const editablePost = privatePosts?.find((item) => item.id === values.id);
   const dispatch = useDispatch();
-
   const onChange = (value) => {
     setModifiedPost({ ...modifiedPost, post: value });
   };
@@ -21,12 +18,7 @@ export const Edit = ({ values, setEdit }) => {
       setEdit(true);
       return;
     }
-    if (editablePost) {
-      dispatch(editPrivate(modifiedPost));
-      setEdit(false);
-      return;
-    }
-    dispatch(editPublic(modifiedPost));
+    dispatch(editPost(modifiedPost));
     setEdit(false);
   };
 

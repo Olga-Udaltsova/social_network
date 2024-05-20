@@ -7,4 +7,5 @@ export const PostsSection = styled.div`
   gap: 15px;
   text-align: center;
   word-wrap: break-word;
+  align-items: center;
 `;
