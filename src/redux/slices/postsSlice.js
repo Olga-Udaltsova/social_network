@@ -1,10 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  privatePosts: {
-    author: null,
-    posts: null,
-  },
+  privatePosts: null,
   publicPosts: null,
 };
 
@@ -13,15 +10,10 @@ export const postsSlice = createSlice({
   initialState,
   reducers: {
     addToPrivate: (state, action) => {
-      const publication = { ...action.payload };
-      publication.id = new Date().getTime();
-      const newPost = {
-        id: publication.id,
-        post: publication.post,
-      };
-      state.privatePosts.author = publication.user;
-      state.privatePosts.posts = state.privatePosts.posts
-        ? [newPost, ...state.privatePosts.posts]
+      const newPost = { ...action.payload };
+      newPost.id = new Date().getTime();
+      state.privatePosts = state.privatePosts
+        ? [newPost, ...state.privatePosts]
         : [newPost];
     },
     addToPublic: (state, action) => {
@@ -32,9 +24,9 @@ export const postsSlice = createSlice({
         : [newPost];
     },
     editPrivate: (state, action) => {
-      state.privatePosts.posts = state.privatePosts.posts.map((post) => {
+      state.privatePosts = state.privatePosts.map((post) => {
         if (post.id === action.payload.id) {
-          return action.payload;
+          return { ...post, post: action.payload.post };
         }
         return post;
       });
