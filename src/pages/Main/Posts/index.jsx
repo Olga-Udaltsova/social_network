@@ -8,6 +8,11 @@ export const Posts = ({ publication }) => {
   const { admin } = useSelector((state) => state.currentUser);
   const dispatch = useDispatch();
 
+  const handleKeyDown = (e) => {
+    e.target.style.height = "initial";
+    e.target.style.height = `${e.target.scrollHeight}px`;
+  };
+
   return (
     <SC.Publication key={id}>
       <SC.Information>
@@ -23,7 +28,15 @@ export const Posts = ({ publication }) => {
             Удалить
           </Button>
         ) : (
-          <div>Оставить комментарий</div>
+          <SC.CommentBlock>
+            <SC.Comment
+              placeholder="Оставить комментарий..."
+              onKeyDown={handleKeyDown}
+            />
+            <div>
+              <Button>Отправить</Button>
+            </div>
+          </SC.CommentBlock>
         )}
       </div>
     </SC.Publication>
