@@ -48,7 +48,10 @@ export const Publication = () => {
               checked={isChecked}
               onChange={() => setIsChecked(!isChecked)}
             />
-            <label htmlFor="checkbox">Только для друзей</label>
+            <label htmlFor="checkbox">
+              <span />
+              Только для друзей
+            </label>
           </SC.Input>
           <SC.Buttons>
             <Button onClick={() => toPublish(post)}>Опубликовать</Button>

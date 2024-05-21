@@ -51,7 +51,7 @@ export const Registration = () => {
       <SC.Registration>
         <SC.Picture src={form} alt="form" />
         <SC.Form onSubmit={onSubmit}>
-          <Heading>Регистрация</Heading>
+          <Heading $center>Регистрация</Heading>
           <Inputs
             formValues={formValues}
             onChange={onChange}

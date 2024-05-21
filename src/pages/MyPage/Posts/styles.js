@@ -4,7 +4,7 @@ export const MyPosts = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  margin: 10px 0;
+  margin: 20px 0;
 `;
 
 export const SectionPosts = styled.div`
