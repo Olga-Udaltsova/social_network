@@ -62,8 +62,8 @@ export const Input = styled.div`
       border-radius: 50%;
       transition: background-color 150ms 200ms,
         transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89);
-      
-        &:before {
+
+      &:before {
         content: "";
         width: 0px;
         height: 2px;

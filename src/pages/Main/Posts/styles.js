@@ -6,10 +6,11 @@ export const Publication = styled.div`
   display: flex;
   flex-direction: column;
   gap: 25px;
-  padding: 20px;
+  padding: 10px 0 5px;
   border-radius: 20px;
-  background: #777fc7b8;
   font-size: 18px;
+  border: 1px solid #5e5da6;
+  border-radius: 10px;
 `;
 
 export const Information = styled.div`
@@ -19,16 +20,30 @@ export const Information = styled.div`
 `;
 
 export const CommentBlock = styled.div`
-display: flex;
-flex-direction: column;
-gap: 20px;
-`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 20px;
+  div {
+    width: 100%;
+  }
+`;
 
 export const Comment = styled.textarea`
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   border: none;
   border-radius: 10px;
   resize: none;
   outline: none;
+`;
+
+export const Button = styled.button`
+  border: none;
+  background: none;
+  cursor: pointer;
+  img {
+    width: 40px;
+  }
 `;

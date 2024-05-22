@@ -6,7 +6,7 @@ export const Post = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 25px;
+  gap: 20px;
   text-align: center;
   padding: 15px 30px;
   border: 2px solid #6261ba;

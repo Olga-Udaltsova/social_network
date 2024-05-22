@@ -28,15 +28,15 @@ export const Edit = ({ values, setEdit }) => {
         <Button className="close" onClick={() => setEdit(false)}>
           Закрыть
         </Button>
-        <SC.Label htmlFor="textPost">Текст поста</SC.Label>
+        <SC.Label htmlFor="textPost">Редактирование</SC.Label>
         <SC.Input
           id="textPost"
           type="text"
           placeholder="Текст"
           value={modifiedPost.post}
           onChange={(e) => onChange(e.target.value)}
-          cols={45}
-          rows={5}
+          cols={42}
+          rows={8}
         />
       </SC.Form>
       <Button onClick={() => saveChanges(modifiedPost)}>Сохранить</Button>
