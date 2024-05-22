@@ -4,7 +4,7 @@ export const PostsSection = styled.div`
   margin: 30px auto;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 30px;
   text-align: center;
   word-wrap: break-word;
   align-items: center;

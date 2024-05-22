@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { deletePost } from "../../../redux/slices/postsSlice";
-import { Button } from "../../../components/ui/Button";
+import iconSend from "../../../icons/send.png";
+import iconDelete from "../../../icons/delete.svg";
 import * as SC from "./styles";
 
 export const Posts = ({ publication }) => {
@@ -21,21 +22,21 @@ export const Posts = ({ publication }) => {
       </SC.Information>
       <div>
         {admin ? (
-          <Button
-            className="delete"
-            onClick={() => dispatch(deletePost(publication))}
-          >
-            Удалить
-          </Button>
+          <SC.Button onClick={() => dispatch(deletePost(publication))}>
+            <img src={iconDelete} />
+          </SC.Button>
         ) : (
           <SC.CommentBlock>
-            <SC.Comment
-              placeholder="Оставить комментарий..."
-              onKeyDown={handleKeyDown}
-            />
             <div>
-              <Button>Отправить</Button>
+              <SC.Comment
+                placeholder="Оставить комментарий..."
+                onKeyDown={handleKeyDown}
+                rows={2}
+              />
             </div>
+            <SC.Button>
+              <img src={iconSend} />
+            </SC.Button>
           </SC.CommentBlock>
         )}
       </div>

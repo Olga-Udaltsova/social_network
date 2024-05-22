@@ -14,4 +14,7 @@ export const Label = styled.label`
 export const Input = styled.textarea`
   resize: none;
   padding: 5px;
+  outline: none;
+  border: 3px solid #5e5da6;
+  border-radius: 10px;
 `;
