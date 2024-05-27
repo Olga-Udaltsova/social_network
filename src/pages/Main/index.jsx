@@ -9,11 +9,20 @@ import * as SC from "./styles";
 export const Main = () => {
   const { admin, user } = useSelector((state) => state.currentUser);
   const { friends } = useSelector((state) => state.friends);
-  const { privatePosts, publicPosts, allPosts } = useSelector(
-    (state) => state.posts
-  );
+  const { privatePosts, publicPosts } = useSelector((state) => state.posts);
 
-  const filterPosts = () => {
+  const getAllPosts = () => {
+    let postsForMain = [];
+    if (publicPosts) {
+      if (privatePosts) {
+        postsForMain = postsForMain.concat(privatePosts);
+      }
+      return (postsForMain = postsForMain.concat(publicPosts));
+    }
+    return postsForMain;
+  };
+
+  const getFilteredPosts = () => {
     const myFriends = toFilterFriends(user, friends);
     const myPrivatePosts = toFilterPosts(user, privatePosts);
     let postsForMain = publicPosts
@@ -29,13 +38,13 @@ export const Main = () => {
     return postsForMain;
   };
 
-  const posts = admin ? allPosts : filterPosts();
+  const posts = admin ? getAllPosts() : getFilteredPosts();
 
   return (
     <Container>
       <Heading $center>Посты</Heading>
       <SC.PostsSection>
-        {posts ? (
+        {posts.length !== 0 ? (
           posts.map((post) => <Posts key={post.id} publication={post} />)
         ) : (
           <NoContent>Нет постов</NoContent>
