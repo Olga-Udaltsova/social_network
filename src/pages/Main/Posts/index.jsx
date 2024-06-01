@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { DeletePost } from "./DeletePost";
 import { CommentBlock } from "./CommentBlock";
 import { Comments } from "./Comments";
-
 import * as SC from "./styles";
 
 export const Posts = ({ publication }) => {

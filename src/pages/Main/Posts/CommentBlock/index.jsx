@@ -14,6 +14,15 @@ export const CommentBlock = ({ post }) => {
 
   const dispatch = useDispatch();
 
+  const sendComment = (comment) => {
+    if (!comment) {
+      alert("Пустое поле! Введите текст");
+      return;
+    }
+    dispatch(addComment({ user, post, comment }));
+    setComment("");
+  };
+
   return (
     <SC.CommentBlock>
       <div>
@@ -25,7 +34,7 @@ export const CommentBlock = ({ post }) => {
           onChange={(e) => setComment(e.target.value)}
         />
       </div>
-      <SC.Button onClick={() => dispatch(addComment({ user, post, comment }))}>
+      <SC.Button onClick={() => sendComment(comment)}>
         <img src={iconSend} />
       </SC.Button>
     </SC.CommentBlock>

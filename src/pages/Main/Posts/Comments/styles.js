@@ -5,14 +5,17 @@ export const Div = styled.div`
 `;
 
 export const Comment = styled.div`
-  display: flex;
-  gap: 10px;
+  max-width: 1000px;
+  width: 100%;
+  margin-bottom: 10px;
   padding: 0 20px;
-  align-items: center;
-  font-size: 13px;
-
-  p:first-child {
-    font-weight: bold;
-    font-size: 16px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.1;
+  span {
+    margin-left: 5px;
+    font-weight: normal;
+    font-size: 13px;
   }
 `;

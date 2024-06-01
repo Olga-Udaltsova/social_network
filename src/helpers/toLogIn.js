@@ -3,8 +3,8 @@ import { login, loginAsAdmin } from "../redux/slices/userSlice";
 
 export const toLogIn = (inputData, isChecked, navigate, dispatch) => {
   const users = JSON.parse(localStorage.getItem(USERS));
-  const userInLS = users.some((user) => user.email === inputData.email);
-  const currentUser = users.find(
+  const userInLS = users?.some((user) => user.email === inputData.email);
+  const currentUser = users?.find(
     (user) =>
       user.email === inputData.email && user.password === inputData.password
   );

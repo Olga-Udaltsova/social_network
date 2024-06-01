@@ -6,8 +6,9 @@ export const Comments = ({ comments }) => {
       {comments ? (
         comments.map((item) => (
           <SC.Comment key={item.id}>
-            <p>{item.user.name}: </p>
-            <p>{item.comment}</p>
+            <p>
+              {item.user.name}: <span>{item.comment}</span>
+            </p>
           </SC.Comment>
         ))
       ) : (
