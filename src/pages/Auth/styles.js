@@ -52,7 +52,7 @@ export const Image = styled.img`
   animation: ${display} 2.5s forwards;
 `;
 
-export const Auth = styled.div`
+export const Auth = styled.form`
   display: flex;
   flex-direction: column;
   gap: 30px;

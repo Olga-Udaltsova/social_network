@@ -18,15 +18,13 @@ export const AllUsers = () => {
   return (
     <Container>
       <Heading $center>Пользователи</Heading>
-      {people ? (
-        <SC.Users>
-          {people.map((person) => (
-            <Users key={person.id} person={person} />
-          ))}
-        </SC.Users>
-      ) : (
-        <NoContent>Пользователей нет</NoContent>
-      )}
+      <SC.Users>
+        {people.length !== 0 ? (
+          people.map((person) => <Users key={person.id} person={person} />)
+        ) : (
+          <NoContent>Пользователей нет</NoContent>
+        )}
+      </SC.Users>
     </Container>
   );
 };
