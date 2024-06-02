@@ -1,14 +1,14 @@
 import { useSelector } from "react-redux";
 import { NoContent } from "../../../components/ui/NoContent";
 import { Post } from "./Post";
-import { toFilterPosts } from "../../../helpers/toFilter";
+import { filterPosts } from "../../../helpers/filter";
 import * as SC from "./styles";
 
 export const Posts = () => {
   const { user } = useSelector((state) => state.currentUser);
   const { publicPosts, privatePosts } = useSelector((state) => state.posts);
-  const myPublicPosts = toFilterPosts(user, publicPosts);
-  const myPrivatePosts = toFilterPosts(user, privatePosts);
+  const myPublicPosts = filterPosts(user, publicPosts);
+  const myPrivatePosts = filterPosts(user, privatePosts);
 
   return (
     <SC.SectionPosts>

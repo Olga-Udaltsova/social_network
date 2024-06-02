@@ -15,7 +15,7 @@ export const Header = () => {
   };
 
   return (
-    <Container>
+    <Container className='header'>
       <SC.Header>
         <SC.Links>
           <SC.Link to="">Главная</SC.Link>

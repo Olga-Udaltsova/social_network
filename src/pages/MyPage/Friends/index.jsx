@@ -1,14 +1,14 @@
 import { useSelector } from "react-redux";
 import { Section } from "../../../components/ui/Section";
 import { NoContent } from "../../../components/ui/NoContent";
-import { toFilterFriends } from "../../../helpers/toFilter";
+import { filterFriends } from "../../../helpers/filter";
 import { Friend } from "./Friend";
 import * as SC from "./styles";
 
 export const Friends = () => {
   const { user } = useSelector((state) => state.currentUser);
   const { friends } = useSelector((state) => state.friends);
-  const myFriends = toFilterFriends(user, friends);
+  const myFriends = filterFriends(user, friends);
 
   return (
     <Section>

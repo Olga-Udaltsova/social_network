@@ -12,7 +12,7 @@ export const DeletePost = ({ post }) => {
   return (
     <>
       <SC.Button onClick={() => setClickDelete(!clickDelete)}>
-        <img src={iconDelete} />
+        <img src={iconDelete} alt="icon" />
       </SC.Button>
       {clickDelete ? (
         <SC.DeleteBlock>
