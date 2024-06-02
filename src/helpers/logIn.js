@@ -1,7 +1,7 @@
 import { USERS, ADMIN } from "../constants";
 import { login, loginAsAdmin } from "../redux/slices/userSlice";
 
-export const toLogIn = (inputData, isChecked, navigate, dispatch) => {
+export const logIn = (inputData, isChecked, navigate, dispatch) => {
   const users = JSON.parse(localStorage.getItem(USERS));
   const userInLS = users?.some((user) => user.email === inputData.email);
   const currentUser = users?.find(

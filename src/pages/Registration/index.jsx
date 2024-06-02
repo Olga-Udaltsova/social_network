@@ -3,8 +3,8 @@ import { Container } from "../../components/ui/Container";
 import { Button } from "../../components/ui/Button";
 import { Modal } from "../../components/ui/Modal";
 import { Heading } from "../../components/ui/Heading";
-import { toValidate } from "../../helpers/toValidate";
-import { toRegister } from "../../helpers/toRegister";
+import { validate } from "../../helpers/validate";
+import { register } from "../../helpers/register";
 import { Inputs } from "./Inputs";
 import { VALUES } from "../../constants";
 import form from "../../images/registration_form.svg";
@@ -23,7 +23,7 @@ export const Registration = () => {
 
   const validateFormValues = (name, value) => {
     setErrorsFromFormValues(
-      toValidate(errorsFromFormValues, formValues, name, value)
+      validate(errorsFromFormValues, formValues, name, value)
     );
   };
 
@@ -43,7 +43,7 @@ export const Registration = () => {
       setError(true);
       return;
     }
-    toRegister(formValues, setSuccessfulRegistration);
+    register(formValues, setSuccessfulRegistration);
   };
 
   return (

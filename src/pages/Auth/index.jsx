@@ -7,7 +7,7 @@ import { Heading } from "../../components/ui/Heading";
 import { Modal } from "../../components/ui/Modal";
 import { Inputs } from "./Inputs";
 import { Checkbox } from "./Checkbox";
-import { toLogIn } from "../../helpers/toLogIn";
+import { logIn } from "../../helpers/logIn";
 import { ADMIN } from "../../constants";
 import welcome from "../../images/welcome.png";
 import * as SC from "./styles";
@@ -39,7 +39,7 @@ export const Auth = () => {
       setError(true);
       return;
     }
-    toLogIn(inputData, isChecked, navigate, dispatch);
+    logIn(inputData, isChecked, navigate, dispatch);
   };
 
   return (

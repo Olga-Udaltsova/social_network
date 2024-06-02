@@ -35,7 +35,7 @@ export const CommentBlock = ({ post }) => {
         />
       </div>
       <SC.Button onClick={() => sendComment(comment)}>
-        <img src={iconSend} />
+        <img src={iconSend} alt="icon" />
       </SC.Button>
     </SC.CommentBlock>
   );

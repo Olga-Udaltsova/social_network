@@ -6,22 +6,22 @@ import {
   addToFriend,
   deleteFromFriends,
 } from "../../../redux/slices/friendsSlice";
-import { toFilterFriends } from "../../../helpers/toFilter";
+import { filterFriends } from "../../../helpers/filter";
 import * as SC from "./styles";
 
 export const Users = ({ person }) => {
   const { id, name, email } = person;
   const { user } = useSelector((state) => state.currentUser);
   const { friends } = useSelector((state) => state.friends);
-  const myFriends = toFilterFriends(user, friends);
-  const [inFriend, setInFriend] = useState(
-    myFriends?.listOfFriends?.some((item) => item.id === person.id)
+  const myFriends = filterFriends(user, friends);
+  const friend = myFriends?.listOfFriends?.some(
+    (item) => item.id === person.id
   );
-
+  const [inFriend, setInFriend] = useState(friend ? true : false);
   const dispatch = useDispatch();
 
   const toggleFriend = (person) => {
-    if (!inFriend) {
+    if (!friend) {
       dispatch(addToFriend({ user, person }));
       setInFriend(true);
       return;

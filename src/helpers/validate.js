@@ -1,4 +1,4 @@
-export const toValidate = (errorsFromFormValues, formValues, name, value) => {
+export const validate = (errorsFromFormValues, formValues, name, value) => {
   const validate = { ...errorsFromFormValues, [name]: "" };
 
   switch (name) {
