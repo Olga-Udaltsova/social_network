@@ -1,5 +1,7 @@
 import { validate } from "./validate";
 
+const errorsFromFormValues = null;
+
 describe("Проверяем работу валидации", () => {
   test("При регистрации email - admin@ya.ru выводится ошибка", () => {
     const formValues = {
@@ -8,7 +10,6 @@ describe("Проверяем работу валидации", () => {
       password: "111",
       repeatPassword: "111",
     };
-    const errorsFromFormValues = null;
     expect(
       validate(errorsFromFormValues, formValues, "email", formValues.email)
     ).toStrictEqual({
@@ -23,7 +24,6 @@ describe("Проверяем работу валидации", () => {
       password: "111",
       repeatPassword: "123",
     };
-    const errorsFromFormValues = null;
     expect(
       validate(
         errorsFromFormValues,
@@ -41,7 +41,6 @@ describe("Проверяем работу валидации", () => {
       password: "111",
       repeatPassword: "123",
     };
-    const errorsFromFormValues = null;
     expect(
       validate(errorsFromFormValues, formValues, "name", formValues.name)
     ).toStrictEqual({ "name": "Пожалуйста, укажите имя" });
