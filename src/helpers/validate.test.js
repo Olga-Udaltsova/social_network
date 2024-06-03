@@ -12,8 +12,8 @@ describe("Проверяем работу валидации", () => {
     };
     expect(
       validate(errorsFromFormValues, formValues, "email", formValues.email)
-    ).toStrictEqual({
-      "email": "Данный email занят, пожалуйста, укажите другой email",
+    ).toEqual({
+      email: "Данный email занят, пожалуйста, укажите другой email",
     });
   });
 
@@ -31,7 +31,7 @@ describe("Проверяем работу валидации", () => {
         "repeatPassword",
         formValues.repeatPassword
       )
-    ).toStrictEqual({ "repeatPassword": "Пароли не совпадают" });
+    ).toEqual({ repeatPassword: "Пароли не совпадают" });
   });
 
   test("Если не введено имя пользователя и пароли не совпадают выводятся ошибки", () => {
@@ -43,7 +43,7 @@ describe("Проверяем работу валидации", () => {
     };
     expect(
       validate(errorsFromFormValues, formValues, "name", formValues.name)
-    ).toStrictEqual({ "name": "Пожалуйста, укажите имя" });
+    ).toEqual({ name: "Пожалуйста, укажите имя" });
     expect(
       validate(
         errorsFromFormValues,
@@ -51,6 +51,6 @@ describe("Проверяем работу валидации", () => {
         "repeatPassword",
         formValues.repeatPassword
       )
-    ).toStrictEqual({ "repeatPassword": "Пароли не совпадают" });
+    ).toEqual({ repeatPassword: "Пароли не совпадают" });
   });
 });
