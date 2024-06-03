@@ -1,10 +1,10 @@
 export const getAllPosts = (privatePosts, publicPosts) => {
   let allPosts = [];
+  if (privatePosts) {
+    allPosts = allPosts.concat(privatePosts);
+  }
   if (publicPosts) {
-    if (privatePosts) {
-      allPosts = allPosts.concat(privatePosts);
-    }
-    return (allPosts = allPosts.concat(publicPosts));
+    allPosts = allPosts.concat(publicPosts);
   }
   return allPosts;
 };
