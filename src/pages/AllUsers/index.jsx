@@ -23,7 +23,7 @@ export const AllUsers = () => {
     if (debouncedValue.length > 0) {
       setPeople(
         people.filter((person) =>
-          person.name.toLowerCase().includes(debouncedValue)
+          person.name.toLowerCase().includes(debouncedValue.toLowerCase())
         )
       );
     } else if (!debouncedValue) {
@@ -42,7 +42,7 @@ export const AllUsers = () => {
         type="text"
         placeholder="Поиск"
         value={search}
-        onChange={(e) => setSearch(e.target.value.toLowerCase())}
+        onChange={(e) => setSearch(e.target.value)}
       />
       <SC.Users>
         {people.length !== 0 ? (
