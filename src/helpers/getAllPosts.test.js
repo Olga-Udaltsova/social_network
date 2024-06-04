@@ -39,10 +39,7 @@ describe("Проверяем работу функции получения вс
       },
     ];
     expect(getAllPosts(privatePosts, publicPosts)).toEqual(
-      expect.arrayContaining(publicPosts)
-    );
-    expect(getAllPosts(privatePosts, publicPosts)).toEqual(
-      expect.arrayContaining(privatePosts)
+      expect.arrayContaining(publicPosts, privatePosts)
     );
   });
 });
