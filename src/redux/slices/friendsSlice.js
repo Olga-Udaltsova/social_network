@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   friends: null,
@@ -18,12 +18,12 @@ export const friendsSlice = createSlice({
       }
 
       const currentUserInList = state.friends.some(
-        (friend) => current(friend.user) === request.user
+        (friend) => friend.user.id === request.user.id
       );
 
       if (currentUserInList) {
         const updatedList = state.friends.map((friend) => {
-          if (current(friend.user) === request.user) {
+          if (friend.user.id === request.user.id) {
             return {
               ...friend,
               listOfFriends: [request.person, ...friend.listOfFriends],
@@ -44,15 +44,15 @@ export const friendsSlice = createSlice({
       const request = { ...action.payload };
 
       const currentUserInList = state.friends.some(
-        (friend) => current(friend.user) === request.user
+        (friend) => friend.user.id === request.user.id
       );
 
       if (currentUserInList) {
         const updatedList = state.friends.map((friend) => {
-          if (current(friend.user) === request.user) {
+          if (friend.user.id === request.user.id) {
             return {
               ...friend,
-              listOfFriends: current(friend.listOfFriends).filter(
+              listOfFriends: friend.listOfFriends.filter(
                 (friend) => friend.id !== request.person.id
               ),
             };
