@@ -17,7 +17,7 @@ export const Users = ({ person }) => {
   const friend = myFriends?.listOfFriends?.some(
     (item) => item.id === person.id
   );
-  const [inFriend, setInFriend] = useState(friend ? true : false);
+  const [inFriend, setInFriend] = useState(friend);
   const dispatch = useDispatch();
 
   const toggleFriend = (person) => {

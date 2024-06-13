@@ -6,4 +6,5 @@ export const Label = styled.label`
   top: 10px;
   transition: 0.2s ease all;
   font-size: 16px;
+  pointer-events: none;
 `;

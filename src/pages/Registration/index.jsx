@@ -51,7 +51,12 @@ export const Registration = () => {
       <SC.Registration>
         <SC.Picture src={form} alt="form" />
         <SC.Form onSubmit={onSubmit}>
-          <Heading $center>Регистрация</Heading>
+          <SC.Div>
+            <Heading $center>Регистрация</Heading>
+            <p>
+              Есть аккаунт? <SC.Link to="/">Войти</SC.Link>
+            </p>
+          </SC.Div>
           <Inputs
             formValues={formValues}
             onChange={onChange}
@@ -66,7 +71,7 @@ export const Registration = () => {
       {successfulRegistration && (
         <Modal>
           <SC.ModalText>Вы успешно зарегистрировались!</SC.ModalText>
-          <Button to="/">Ок</Button>
+          <Button to="/">Вернуться на страницу авторизации</Button>
         </Modal>
       )}
       {error && (

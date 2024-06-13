@@ -1,6 +1,7 @@
 import { FormElement } from "../../../components/ui/FormElement";
 import { Label } from "../../../components/ui/Label";
 import { Input } from "../../../components/ui/Input";
+import { InputPassword } from "../../../components/InputPassword";
 import * as SC from "./styles";
 
 export const Inputs = ({
@@ -36,35 +37,41 @@ export const Inputs = ({
         <SC.Error>{errorsFromFormValues.email}</SC.Error>
       )}
     </FormElement>
-    <FormElement>
-      <Input
-        type="password"
+
+    <div>
+      <InputPassword
         autoComplete="off"
         id="password"
         name="password"
         value={formValues.password}
         onChange={(e) => onChange(e.target.name, e.target.value)}
         onBlur={(e) => validateFormValues(e.target.name, e.target.value)}
+        htmlFor="password"
+        text="Придумайте пароль: "
       />
-      <Label htmlFor="password" text="Придумайте пароль: " />
       {errorsFromFormValues && (
         <SC.Error>{errorsFromFormValues.password}</SC.Error>
       )}
-    </FormElement>
-    <FormElement>
-      <Input
-        type="password"
+    </div>
+    <div>
+      <InputPassword
         autoComplete="off"
         id="repeatPassword"
         name="repeatPassword"
         value={formValues.repeatPassword}
         onChange={(e) => onChange(e.target.name, e.target.value)}
         onBlur={(e) => validateFormValues(e.target.name, e.target.value)}
+        htmlFor="repeatPassword"
+        text="Повторите пароль: "
       />
-      <Label htmlFor="repeatPassword" text="Повторите пароль: " />
+
       {errorsFromFormValues && (
         <SC.Error>{errorsFromFormValues.repeatPassword}</SC.Error>
       )}
-    </FormElement>
+      <SC.Text>
+        Пароль должен содержать не менее 8 символов, заглавные и строчные буквы
+        латинского алфавита (A-z), цифры и спец.символы (!@#$_%^&*)
+      </SC.Text>
+    </div>
   </>
 );

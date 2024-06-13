@@ -51,9 +51,11 @@ export const Auth = () => {
         <SC.Auth>
           <Inputs onChange={onChange} />
           <Checkbox isChecked={isChecked} handleChange={handleChange} />
-          <Button onClick={toAuth}>Вход</Button>
-          <Button to="reg">Регистрация</Button>
+          <Button onClick={toAuth}>Войти</Button>
         </SC.Auth>
+        <p>
+          Еще нет аккаунта? <SC.Link to="reg">Регистрация</SC.Link>
+        </p>
       </SC.Form>
       {error && (
         <Modal>

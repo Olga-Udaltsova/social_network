@@ -33,6 +33,17 @@ export const Form = styled.div`
   right: 10%;
   transform: translateY(-200%);
   animation: ${ani} 3s forwards;
+
+  > p {
+    text-align: center;
+    font-size: 15px;
+    color: #44454a;
+  }
+`;
+
+export const Link = styled(NavLink)`
+  text-decoration: none;
+  color: #7642c9;
 `;
 
 export const Text = styled.h1`

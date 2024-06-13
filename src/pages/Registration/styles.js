@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
 const appearance = keyframes`
@@ -35,6 +36,21 @@ export const Form = styled.form`
   gap: 30px;
   margin: auto 0;
   text-align: center;
+`;
+
+export const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  > p {
+    font-size: 14px;
+    color: #44454a;
+  }
+`;
+
+export const Link = styled(NavLink)`
+  text-decoration: none;
+  color: #7642c9;
 `;
 
 export const ModalText = styled.div`
