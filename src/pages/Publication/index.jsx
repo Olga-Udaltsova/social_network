@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Slide, ToastContainer, toast } from "react-toastify";
 import { Container } from "../../components/ui/Container";
 import { Heading } from "../../components/ui/Heading";
 import { Button } from "../../components/ui/Button";
@@ -7,6 +8,7 @@ import { addToPrivate, addToPublic } from "../../redux/slices/postsSlice";
 import publish from "../../images/publication.png";
 import background from "../../images/background.png";
 import * as SC from "./styles";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Publication = () => {
   const [post, setPost] = useState("");
@@ -20,10 +22,12 @@ export const Publication = () => {
       return;
     } else if (isChecked) {
       dispatch(addToPrivate({ user, post }));
+      toast.success("Пост опубликован!");
       setPost("");
       return;
     }
     dispatch(addToPublic({ user, post }));
+    toast.success("Пост опубликован!");
     setPost("");
   };
 
@@ -35,6 +39,7 @@ export const Publication = () => {
         <SC.Publication>
           <Heading $center>Опубликовать пост</Heading>
           <SC.Textarea
+            maxLength={4096}
             rows={10}
             value={post}
             onChange={(e) => setPost(e.target.value)}
@@ -58,6 +63,17 @@ export const Publication = () => {
           </SC.Buttons>
         </SC.Publication>
       </SC.Content>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnFocusLoss
+        pauseOnHover={false}
+        draggable
+        theme="light"
+        transition={Slide}
+      />
     </Container>
   );
 };
