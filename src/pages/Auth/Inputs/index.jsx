@@ -1,5 +1,6 @@
 import { FormElement } from "../../../components/ui/FormElement";
 import { Input } from "../../../components/ui/Input";
+import { InputPassword } from "../../../components/InputPassword";
 import { Label } from "../../../components/ui/Label";
 
 export const Inputs = ({ onChange }) => (
@@ -12,14 +13,11 @@ export const Inputs = ({ onChange }) => (
       />
       <Label htmlFor="email" text="Email" />
     </FormElement>
-
-    <FormElement>
-      <Input
-        type="password"
-        id="password"
-        onChange={(e) => onChange("password", e.target.value)}
-      />
-      <Label htmlFor="password" text="Пароль" />
-    </FormElement>
+    <InputPassword
+      id="password"
+      onChange={(e) => onChange("password", e.target.value)}
+      htmlFor="password"
+      text="Пароль"
+    />
   </>
 );
