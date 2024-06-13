@@ -39,7 +39,7 @@ export const Textarea = styled.textarea`
   border: 3px solid #5e5da6;
   border-radius: 10px;
   font-size: 15px;
-  padding: 5px;
+  padding: 10px;
 `;
 
 export const Buttons = styled.div`
