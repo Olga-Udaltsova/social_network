@@ -4,6 +4,7 @@ import { Container } from "../../components/ui/Container";
 import { Heading } from "../../components/ui/Heading";
 import { Users } from "./Users";
 import { NoContent } from "../../components/ui/NoContent";
+import { Search } from "../../components/Search";
 import { USERS } from "../../constants";
 import { useDebounce } from "../../hooks/useDebounce";
 import * as SC from "./styles";
@@ -38,12 +39,7 @@ export const AllUsers = () => {
   return (
     <Container>
       <Heading $center>Пользователи</Heading>
-      <SC.Search
-        type="text"
-        placeholder="Поиск"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+      <Search value={search} onChange={(e) => setSearch(e.target.value)} />
       <SC.Users>
         {people.length !== 0 ? (
           people.map((person) => <Users key={person.id} person={person} />)

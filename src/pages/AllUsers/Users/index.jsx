@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "../../../components/ui/Button";
 import { Avatar } from "../../../components/ui/Avatar";
 import {
   addToFriend,
   deleteFromFriends,
 } from "../../../redux/slices/friendsSlice";
 import { filterFriends } from "../../../helpers/filter";
+import myFriend from "../../../icons/friend.svg";
+import addUser from "../../../icons/addUser.png";
+import deleteUser from "../../../icons/deleteUser.png";
 import * as SC from "./styles";
 
 export const Users = ({ person }) => {
@@ -33,14 +35,19 @@ export const Users = ({ person }) => {
     <SC.Div key={id}>
       <SC.User>
         <Avatar $value="150px" $radius="25px" />
-        <div>
-          <SC.Text>{name}</SC.Text>
-          <SC.Text $email>{email}</SC.Text>
-        </div>
+        <SC.Info>
+          <div>
+            <SC.Text>{name}</SC.Text>
+            <SC.Text $email>{email}</SC.Text>
+          </div>
+          {inFriend && <img src={myFriend} alt="friend" />}
+        </SC.Info>
       </SC.User>
-      <Button onClick={() => toggleFriend(person)}>
-        {inFriend ? "Удалить из друзей" : "Добавить в друзья"}
-      </Button>
+      <SC.Image
+        src={inFriend ? deleteUser : addUser}
+        alt="addFriend"
+        onClick={() => toggleFriend(person)}
+      />
     </SC.Div>
   );
 };
