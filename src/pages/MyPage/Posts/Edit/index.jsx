@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { Modal } from "../../../../components/ui/Modal";
 import { Button } from "../../../../components/ui/Button";
 import { editPost } from "../../../../redux/slices/postsSlice";
+import { ImageButton } from "../../../../components/ui/ImageButton";
+import close from "../../../../icons/close.svg";
 import * as SC from "./styles";
 
 export const Edit = ({ values, setEdit }) => {
@@ -25,11 +27,13 @@ export const Edit = ({ values, setEdit }) => {
   return (
     <Modal>
       <SC.Form>
-        <Button className="close" onClick={() => setEdit(false)}>
-          Закрыть
-        </Button>
-        <SC.Label htmlFor="textPost">Редактирование</SC.Label>
-        <SC.Input
+        <ImageButton
+          className="close"
+          func={() => setEdit(false)}
+          icon={close}
+        />
+        <label htmlFor="textPost">Редактирование</label>
+        <textarea
           id="textPost"
           type="text"
           placeholder="Текст"
@@ -38,8 +42,8 @@ export const Edit = ({ values, setEdit }) => {
           cols={42}
           rows={8}
         />
+        <Button onClick={() => saveChanges(modifiedPost)}>Сохранить</Button>
       </SC.Form>
-      <Button onClick={() => saveChanges(modifiedPost)}>Сохранить</Button>
     </Modal>
   );
 };

@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { Button } from "../../../../components/ui/Button";
 import { Edit } from "../Edit";
+import iconEdit from "../../../../icons/edit.svg";
 import * as SC from "./styles";
+import { DeletePost } from "../../../../components/DeletePost";
+import { ImageButton } from "../../../../components/ui/ImageButton";
+import { ReadMore } from "../../../../components/ReadMore";
 
 export const Post = ({ myPost }) => {
   const { id, post } = myPost;
@@ -16,10 +19,11 @@ export const Post = ({ myPost }) => {
   return (
     <>
       <SC.Post key={id}>
-        <p>{post}</p>
-        <Button onClick={() => editPost({ id, post })}>
-          Редактировать пост
-        </Button>
+        <div>
+          <ImageButton func={() => editPost({ id, post })} icon={iconEdit} />
+          <DeletePost post={{ id, post }} />
+        </div>
+        <ReadMore id={id}>{post}</ReadMore>
       </SC.Post>
       {edit && <Edit values={postData} setEdit={setEdit} />}
     </>

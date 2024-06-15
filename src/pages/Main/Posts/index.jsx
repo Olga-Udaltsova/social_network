@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Avatar } from "../../../components/ui/Avatar";
-import { DeletePost } from "./DeletePost";
+import { DeletePost } from "../../../components/DeletePost";
 import { CommentBlock } from "./CommentBlock";
 import { Comments } from "./Comments";
 import * as SC from "./styles";

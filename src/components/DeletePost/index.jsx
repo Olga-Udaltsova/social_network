@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Modal } from "../../../../components/ui/Modal";
-import { Button } from "../../../../components/ui/Button";
-import { deletePost } from "../../../../redux/slices/postsSlice";
-import iconDelete from "../../../../icons/delete.svg";
+import { Modal } from "../ui/Modal";
+import { Button } from "../ui/Button";
+import { ImageButton } from "../ui/ImageButton";
+import { deletePost } from "../../redux/slices/postsSlice";
+import iconDelete from "../../icons/delete.svg";
 import * as SC from "./styles";
 
 export const DeletePost = ({ post }) => {
@@ -12,10 +13,10 @@ export const DeletePost = ({ post }) => {
 
   return (
     <>
-      <SC.Button onClick={() => setClickDelete(!clickDelete)}>
-        <img src={iconDelete} alt="icon" />
-        <p>Удалить</p>
-      </SC.Button>
+      <ImageButton
+        func={() => setClickDelete(!clickDelete)}
+        icon={iconDelete}
+      />
       {clickDelete && (
         <Modal>
           <p>Вы действительно хотите удалить этот пост?</p>

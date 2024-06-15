@@ -9,7 +9,7 @@ export const Container = styled.div`
     background: #c1d3fe;
     margin: 0 auto;
     padding: 15px 0;
-    border-bottom: 6px solid;
+    border-bottom: 3px solid;
     border-image: linear-gradient(45deg, #b993d6, #8ca6db) 1;
   }
 `;

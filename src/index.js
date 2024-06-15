@@ -6,6 +6,7 @@ import { Registration } from "./pages/Registration";
 import { AllUsers } from "./pages/AllUsers";
 import { Main } from "./pages/Main";
 import { MyPage } from "./pages/MyPage";
+import { DetailPost } from "./pages/DetailPost";
 import { persistor, store } from "./redux/store";
 import { Provider } from "react-redux";
 import { Publication } from "./pages/Publication";
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "my",
         element: <MyPage />,
+      },
+      { 
+        path: "my/:id", 
+        element: <DetailPost /> 
       },
       {
         path: "publish",
