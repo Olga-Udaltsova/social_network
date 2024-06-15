@@ -22,7 +22,7 @@ export const Info = styled.div`
   }
 `;
 
-export const Text = styled.div`
+export const Text = styled.p`
   text-align: center;
   font-size: ${(props) => (props.$email ? "15px" : "24px")};
 `;
