@@ -6,7 +6,8 @@ export const Div = styled.div`
   justify-content: space-between;
   padding-bottom: 15px;
   margin-top: 15px;
-  border-bottom: 2px solid #9380b0;
+  border-bottom: 2px solid;
+  border-image: linear-gradient(45deg, #b993d6, #8ca6db) 1;
 `;
 
 export const User = styled.div`

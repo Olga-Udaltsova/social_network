@@ -13,7 +13,7 @@ export const Modal = styled.div`
 `;
 
 export const ModalContent = styled.div`
-  max-width: 400px;
+  max-width: 500px;
   width: 100%;
   display: flex;
   gap: 30px;

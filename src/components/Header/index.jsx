@@ -15,15 +15,15 @@ export const Header = () => {
   };
 
   return (
-    <Container className='header'>
+    <Container className="header">
       <SC.Header>
         <SC.Links>
-          <SC.Link to="">Главная</SC.Link>
+          <SC.Link to="/main">Главная</SC.Link>
           {user && (
             <>
-              <SC.Link to="publish">Опубликовать пост</SC.Link>
-              <SC.Link to="my">Профиль</SC.Link>
-              <SC.Link to="users">Пользователи</SC.Link>
+              <SC.Link to="/main/publish">Опубликовать пост</SC.Link>
+              <SC.Link to="/main/my">Профиль</SC.Link>
+              <SC.Link to="/main/users">Пользователи</SC.Link>
             </>
           )}
         </SC.Links>

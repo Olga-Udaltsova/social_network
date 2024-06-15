@@ -12,7 +12,7 @@ export const CommentBlock = styled.div`
 
 export const Comment = styled.textarea`
   width: 100%;
-  padding: 5px;
+  padding: 10px;
   border: none;
   border-radius: 10px;
   resize: none;
