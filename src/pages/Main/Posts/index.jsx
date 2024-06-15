@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Avatar } from "../../../components/ui/Avatar";
 import { DeletePost } from "./DeletePost";
 import { CommentBlock } from "./CommentBlock";
 import { Comments } from "./Comments";
@@ -9,17 +10,19 @@ export const Posts = ({ publication }) => {
   const { admin } = useSelector((state) => state.currentUser);
 
   return (
-    <SC.Publication key={id}>
-      <SC.Information>
-        <p>Пост опубликован пользователем: {user.name}</p>
-        <p>{post}</p>
-      </SC.Information>
-      <Comments comments={comments} />
-      {admin ? (
-        <DeletePost post={publication} />
-      ) : (
-        <CommentBlock post={publication} />
-      )}
-    </SC.Publication>
+    <SC.Posts key={id}>
+      <SC.Publication>
+        <SC.Information>
+          <div>
+            <Avatar $value="50px" $radius="25px" />
+            <p>{user.name}</p>
+          </div>
+          <p>{post}</p>
+        </SC.Information>
+        {admin && <DeletePost post={publication} />}
+      </SC.Publication>
+      {comments && <Comments comments={comments} />}
+      {!admin && <CommentBlock post={publication} />}
+    </SC.Posts>
   );
 };

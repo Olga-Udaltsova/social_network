@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Modal } from "../../../../components/ui/Modal";
 import { Button } from "../../../../components/ui/Button";
 import { deletePost } from "../../../../redux/slices/postsSlice";
 import iconDelete from "../../../../icons/delete.svg";
@@ -13,17 +14,16 @@ export const DeletePost = ({ post }) => {
     <>
       <SC.Button onClick={() => setClickDelete(!clickDelete)}>
         <img src={iconDelete} alt="icon" />
+        <p>Удалить</p>
       </SC.Button>
-      {clickDelete ? (
-        <SC.DeleteBlock>
-          <p>Вы действительно хотите удалить пост?</p>
+      {clickDelete && (
+        <Modal>
+          <p>Вы действительно хотите удалить этот пост?</p>
           <SC.Buttons>
             <Button onClick={() => dispatch(deletePost(post))}>Удалить</Button>
             <Button onClick={() => setClickDelete(!clickDelete)}>Отмена</Button>
           </SC.Buttons>
-        </SC.DeleteBlock>
-      ) : (
-        <></>
+        </Modal>
       )}
     </>
   );
