@@ -5,7 +5,6 @@ export const CommentBlock = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  margin: 0 20px;
   div {
     width: 100%;
   }
