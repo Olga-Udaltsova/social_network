@@ -10,6 +10,6 @@ export const Container = styled.div`
     margin: 0 auto;
     padding: 15px 0;
     border-bottom: 6px solid;
-    border-image: linear-gradient(45deg, #9d50bb, #6e48aa) 1;
+    border-image: linear-gradient(45deg, #b993d6, #8ca6db) 1;
   }
 `;

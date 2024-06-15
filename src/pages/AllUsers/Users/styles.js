@@ -5,7 +5,7 @@ export const Div = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-bottom: 15px;
-  margin: 15px 0 0 0;
+  margin-top: 15px;
   border-bottom: 2px solid #9380b0;
 `;
 
