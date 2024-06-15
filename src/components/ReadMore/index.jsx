@@ -9,7 +9,7 @@ export const ReadMore = ({ id, children }) => {
     <SC.Div>
       <p>{text}...</p>
       <button onClick={() => setIsTruncated(!isTruncated)}>
-        <SC.ReadMore to={`/my/${id}`}>Читать далее</SC.ReadMore>
+        <SC.ReadMore to={`/${id}`}>Читать далее</SC.ReadMore>
       </button>
     </SC.Div>
   );

@@ -26,6 +26,10 @@ const router = createBrowserRouter([
     element: <Registration />,
   },
   {
+    path: "/:id",
+    element: <DetailPost />,
+  },
+  {
     path: "main",
     element: <App />,
     children: [
@@ -36,10 +40,6 @@ const router = createBrowserRouter([
       {
         path: "my",
         element: <MyPage />,
-      },
-      { 
-        path: "my/:id", 
-        element: <DetailPost /> 
       },
       {
         path: "publish",
