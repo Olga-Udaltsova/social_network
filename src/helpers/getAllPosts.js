@@ -6,5 +6,6 @@ export const getAllPosts = (privatePosts, publicPosts) => {
   if (publicPosts) {
     allPosts = allPosts.concat(publicPosts);
   }
-  return allPosts;
+
+  return allPosts.sort((a, b) => (b["date"] > a["date"] ? 1 : -1));
 };

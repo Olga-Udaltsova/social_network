@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Modal } from "../../../../components/ui/Modal";
-import { Button } from "../../../../components/ui/Button";
-import { editPost } from "../../../../redux/slices/postsSlice";
-import { ImageButton } from "../../../../components/ui/ImageButton";
-import close from "../../../../icons/close.svg";
+import { Modal } from "../ui/Modal";
+import { Button } from "../ui/Button";
+import { editPost } from "../../redux/slices/postsSlice";
+import { ImageButton } from "../ui/ImageButton";
+import close from "../../icons/close.svg";
 import * as SC from "./styles";
 
-export const Edit = ({ values, setEdit }) => {
+export const EditPost = ({ values, setEdit }) => {
   const [modifiedPost, setModifiedPost] = useState(values);
   const dispatch = useDispatch();
   const onChange = (value) => {

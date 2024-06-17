@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Edit } from "../Edit";
-import iconEdit from "../../../../icons/edit.svg";
-import * as SC from "./styles";
+import { EditPost } from "../../../../components/EditPost";
 import { DeletePost } from "../../../../components/DeletePost";
 import { ImageButton } from "../../../../components/ui/ImageButton";
 import { ReadMore } from "../../../../components/ReadMore";
+import iconEdit from "../../../../icons/edit.svg";
+import * as SC from "./styles";
 
 export const Post = ({ myPost }) => {
   const { id, post } = myPost;
@@ -25,7 +25,7 @@ export const Post = ({ myPost }) => {
         </div>
         <ReadMore id={id}>{post}</ReadMore>
       </SC.Post>
-      {edit && <Edit values={postData} setEdit={setEdit} />}
+      {edit && <EditPost values={postData} setEdit={setEdit} />}
     </>
   );
 };

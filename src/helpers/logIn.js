@@ -17,7 +17,12 @@ export const logIn = (inputData, isChecked, navigate, dispatch) => {
     alert("Пользователя с таким email не существует");
     return;
   } else if (currentUser) {
-    dispatch(login(currentUser));
+    const data = {
+      id: currentUser.id,
+      name: currentUser.name,
+      email: currentUser.email,
+    };
+    dispatch(login(data));
     navigate("/main");
     return;
   } else if (admin) {
