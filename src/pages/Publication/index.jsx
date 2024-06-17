@@ -22,7 +22,7 @@ export const Publication = () => {
       return;
     } else if (isChecked) {
       dispatch(addToPrivate({ user, post }));
-      toast.success("Пост опубликован!");
+      toast.success("Пост опубликован!", { containerId: "1" });
       setPost("");
       return;
     }

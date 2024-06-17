@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
 import { Avatar } from "../../../components/ui/Avatar";
 import { DeletePost } from "../../../components/DeletePost";
-import { CommentBlock } from "./CommentBlock";
-import { Comments } from "./Comments";
+import { CommentBlock } from "../../../components/CommentBlock";
+import { Comments } from "../../../components/Comments";
+import { ReadMore } from "../../../components/ReadMore";
 import * as SC from "./styles";
 
 export const Posts = ({ publication }) => {
@@ -17,7 +18,7 @@ export const Posts = ({ publication }) => {
             <Avatar $value="50px" $radius="25px" />
             <p>{user.name}</p>
           </div>
-          <p>{post}</p>
+          <ReadMore id={id}>{post}</ReadMore>
         </SC.Information>
         {admin && <DeletePost post={publication} />}
       </SC.Publication>

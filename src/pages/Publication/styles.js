@@ -10,14 +10,14 @@ export const Image = styled.img`
   position: absolute;
   width: 450px;
   top: 15px;
-  left: -80px;
+  left: -100px;
 `;
 
 export const Background = styled.img`
   position: absolute;
   width: 450px;
   top: 0;
-  right: -50px;
+  right: -90px;
 `;
 
 export const Publication = styled.div`
@@ -38,7 +38,7 @@ export const Textarea = styled.textarea`
   outline: none;
   border: 3px solid #5e5da6;
   border-radius: 10px;
-  font-size: 15px;
+  font-size: 17px;
   padding: 10px;
 `;
 

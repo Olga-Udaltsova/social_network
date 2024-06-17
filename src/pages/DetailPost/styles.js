@@ -11,7 +11,10 @@ export const Info = styled.div`
   flex-direction: column;
   gap: 20px;
   margin-bottom: 15px;
+  padding-bottom: 15px;
   text-align: center;
+  font-size: 19px;
+  border-bottom: 2px solid #8ca6db;
 `;
 
 export const Links = styled.div`

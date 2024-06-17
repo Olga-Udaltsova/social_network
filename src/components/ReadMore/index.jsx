@@ -7,10 +7,16 @@ export const ReadMore = ({ id, children }) => {
 
   return (
     <SC.Div>
-      <p>{text}...</p>
-      <button onClick={() => setIsTruncated(!isTruncated)}>
-        <SC.ReadMore to={`/${id}`}>Читать далее</SC.ReadMore>
-      </button>
+      {children.length < 100 ? (
+        <p>{children}</p>
+      ) : (
+        <>
+          <p>{text}...</p>
+          <button onClick={() => setIsTruncated(!isTruncated)}>
+            <SC.ReadMore to={`/${id}`}>Читать далее</SC.ReadMore>
+          </button>
+        </>
+      )}
     </SC.Div>
   );
 };

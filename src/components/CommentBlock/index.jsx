@@ -1,8 +1,8 @@
 import { useState } from "react";
-import iconSend from "../../../../icons/send.png";
-import * as SC from "./styles";
 import { useDispatch, useSelector } from "react-redux";
-import { addComment } from "../../../../redux/slices/postsSlice";
+import { addComment } from "../../redux/slices/postsSlice";
+import iconSend from "../../icons/send.png";
+import * as SC from "./styles";
 
 export const CommentBlock = ({ post }) => {
   const { user } = useSelector((state) => state.currentUser);

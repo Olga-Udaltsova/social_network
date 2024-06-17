@@ -17,14 +17,15 @@ export const Publication = styled.div`
 `;
 
 export const Information = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 15px;
   text-align: start;
-  > div {
+  div {
     display: flex;
     gap: 15px;
     align-items: center;
-    font-size: 20px;
+    font-size: 19px;
   }
 `;

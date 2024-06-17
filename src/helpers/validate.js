@@ -9,13 +9,6 @@ export const validate = (errorsFromFormValues, formValues, name, value) => {
       break;
 
     case "email":
-      const emailRegex =
-        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(
-          value
-        );
-      if (!emailRegex) {
-        validate[name] = "Проверьте правильность ввода email";
-      }
       if (!value) {
         validate[name] = "Пожалуйста, укажите email";
       } else if (value === "admin@ya.ru") {
