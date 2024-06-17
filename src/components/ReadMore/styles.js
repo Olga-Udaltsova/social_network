@@ -7,7 +7,6 @@ export const Div = styled.div`
   gap: 20px;
   text-align: justify;
   line-height: 1.2;
-
   > button {
     border: none;
     background: none;

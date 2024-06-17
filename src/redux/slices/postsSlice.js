@@ -13,14 +13,14 @@ export const postsSlice = createSlice({
       const newPost = { ...action.payload };
       newPost.id = new Date().getTime();
       state.privatePosts = state.privatePosts
-        ? [newPost, ...state.privatePosts]
+        ? [...state.privatePosts, newPost]
         : [newPost];
     },
     addToPublic: (state, action) => {
       const newPost = { ...action.payload };
       newPost.id = new Date().getTime();
       state.publicPosts = state.publicPosts
-        ? [newPost, ...state.publicPosts]
+        ? [...state.publicPosts, newPost]
         : [newPost];
     },
     editPost: (state, action) => {
