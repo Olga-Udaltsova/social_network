@@ -12,6 +12,7 @@ export const postsSlice = createSlice({
     addToPrivate: (state, action) => {
       const newPost = { ...action.payload };
       newPost.id = new Date().getTime();
+      newPost.date = new Date().toLocaleString();
       state.privatePosts = state.privatePosts
         ? [...state.privatePosts, newPost]
         : [newPost];
@@ -19,6 +20,7 @@ export const postsSlice = createSlice({
     addToPublic: (state, action) => {
       const newPost = { ...action.payload };
       newPost.id = new Date().getTime();
+      newPost.date = new Date().toLocaleString();
       state.publicPosts = state.publicPosts
         ? [...state.publicPosts, newPost]
         : [newPost];
@@ -54,6 +56,7 @@ export const postsSlice = createSlice({
       const comment = { ...action.payload };
       const newComment = {
         id: new Date().getTime(),
+        date: new Date().toLocaleString(),
         user: comment.user,
         comment: comment.comment,
       };

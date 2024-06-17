@@ -1,3 +1,4 @@
+import { Date } from "../ui/Date";
 import * as SC from "./styles";
 
 export const Comments = ({ comments }) => (
@@ -7,6 +8,7 @@ export const Comments = ({ comments }) => (
         <p>
           {item.user.name}: <span>{item.comment}</span>
         </p>
+        <Date>{item.date}</Date>
       </SC.Comment>
     ))}
   </div>

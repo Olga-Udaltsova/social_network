@@ -13,5 +13,5 @@ export const getFilteredPosts = (user, friends, privatePosts, publicPosts) => {
       return (postsForMain = postsForMain.concat(friendsPosts));
     });
   }
-  return postsForMain;
+  return postsForMain.sort((a, b) => (b["date"] > a["date"] ? 1 : -1));
 };
