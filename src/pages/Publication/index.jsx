@@ -15,6 +15,14 @@ export const Publication = () => {
   const [isChecked, setIsChecked] = useState(false);
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.currentUser);
+  const maxLength = 500;
+
+  const handleChange = (event) => {
+    const inputText = event.target.value;
+    if (inputText.length <= maxLength) {
+      setPost(inputText);
+    }
+  };
 
   const toPublish = () => {
     if (!post) {
@@ -39,13 +47,15 @@ export const Publication = () => {
         <SC.Publication>
           <Heading $center>Опубликовать пост</Heading>
           <SC.Textarea
-            maxLength={4096}
             rows={10}
             value={post}
-            onChange={(e) => setPost(e.target.value)}
+            onChange={handleChange}
             placeholder="Введите текст"
             autoFocus
           />
+          <SC.Limit>
+            {maxLength - post.length}/{maxLength}
+          </SC.Limit>
           <SC.Input>
             <input
               type="checkbox"
