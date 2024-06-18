@@ -7,7 +7,7 @@ import { deletePost } from "../../redux/slices/postsSlice";
 import iconDelete from "../../icons/delete.svg";
 import * as SC from "./styles";
 
-export const DeletePost = ({ post }) => {
+export const DeletePost = ({ post}) => {
   const [clickDelete, setClickDelete] = useState(false);
   const dispatch = useDispatch();
 

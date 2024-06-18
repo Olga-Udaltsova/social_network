@@ -1,5 +1,10 @@
 import * as SC from "./styles";
 
-export const ImageButton = ({ className, func, icon }) => (
-  <SC.ImageButton className={className} src={icon} alt="icon" onClick={func} />
+export const ImageButton = ({ func, icon, style }) => (
+  <SC.ImageButton
+    style={style ? style : null}
+    src={icon}
+    alt="icon"
+    onClick={func}
+  />
 );

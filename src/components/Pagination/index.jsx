@@ -22,7 +22,7 @@ export const Pagination = ({ items, currentPage, setCurrentPage }) => {
     <SC.Pagination>
       <div
         onClick={() => reducePage(currentPage)}
-        className={currentPage === 1 && "disabled"}
+        className={currentPage === 1 ? "disabled" : null}
       >
         -
       </div>
@@ -31,7 +31,7 @@ export const Pagination = ({ items, currentPage, setCurrentPage }) => {
       </p>
       <div
         onClick={() => increasePage(currentPage)}
-        className={currentPage === totalPages && "disabled"}
+        className={currentPage === totalPages ? "disabled" : null}
       >
         +
       </div>
