@@ -11,9 +11,8 @@ export const Post = styled.div`
   padding: 15px;
   border: 2px solid #6261ba;
   border-radius: 15px;
-  word-wrap: break-word;
   font-size: 20px;
-
+  word-break: break-all;
   > div {
     display: flex;
     align-items: center;

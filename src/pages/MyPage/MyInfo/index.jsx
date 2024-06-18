@@ -8,7 +8,7 @@ export const MyInfo = () => {
   const { name, email } = user;
   return (
     <Section>
-      <Avatar $value="260px" $radius="125px" />
+      <Avatar $value="200px" $radius="100px" />
       <SC.Info>
         <SC.Text>{name}</SC.Text>
         <SC.Text $email>{email}</SC.Text>
