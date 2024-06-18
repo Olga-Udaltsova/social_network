@@ -5,7 +5,7 @@ export const CommentBlock = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  div {
+  > div {
     width: 100%;
   }
 `;
@@ -23,6 +23,8 @@ export const Button = styled.button`
   border: none;
   background: none;
   cursor: pointer;
+  font-size: 13px;
+  color: #3a3a45;
   img {
     width: 40px;
   }

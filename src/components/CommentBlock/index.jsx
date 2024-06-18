@@ -7,12 +7,20 @@ import * as SC from "./styles";
 export const CommentBlock = ({ post }) => {
   const { user } = useSelector((state) => state.currentUser);
   const [comment, setComment] = useState("");
+  const maxLength = 200;
+  const dispatch = useDispatch();
+
   const handleKeyDown = (e) => {
     e.target.style.height = "initial";
     e.target.style.height = `${e.target.scrollHeight}px`;
   };
 
-  const dispatch = useDispatch();
+  const handleChange = (event) => {
+    const inputText = event.target.value;
+    if (inputText.length <= maxLength) {
+      setComment(inputText);
+    }
+  };
 
   const sendComment = (comment) => {
     if (!comment) {
@@ -31,11 +39,15 @@ export const CommentBlock = ({ post }) => {
           onKeyDown={handleKeyDown}
           rows={2}
           value={comment}
-          onChange={(e) => setComment(e.target.value)}
+          onChange={handleChange}
         />
       </div>
+
       <SC.Button onClick={() => sendComment(comment)}>
         <img src={iconSend} alt="icon" />
+        <p>
+          {maxLength - comment.length}/{maxLength}
+        </p>
       </SC.Button>
     </SC.CommentBlock>
   );

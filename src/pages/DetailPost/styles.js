@@ -15,6 +15,7 @@ export const Info = styled.div`
   text-align: center;
   font-size: 19px;
   border-bottom: 2px solid #8ca6db;
+  word-break: break-all;
 `;
 
 export const Links = styled.div`
