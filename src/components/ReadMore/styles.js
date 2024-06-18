@@ -5,8 +5,9 @@ export const Div = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  text-align: justify;
+  text-align: center;
   line-height: 1.2;
+  margin-bottom: 20px;
   > button {
     border: none;
     background: none;

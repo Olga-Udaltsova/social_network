@@ -6,9 +6,7 @@ import { Button } from "../../components/ui/Button";
 import { Heading } from "../../components/ui/Heading";
 import { Modal } from "../../components/ui/Modal";
 import { Inputs } from "./Inputs";
-import { Checkbox } from "./Checkbox";
 import { logIn } from "../../helpers/logIn";
-import { ADMIN } from "../../constants";
 import welcome from "../../images/welcome.png";
 import * as SC from "./styles";
 
@@ -17,7 +15,6 @@ export const Auth = () => {
     email: "",
     password: "",
   });
-  const [isChecked, setIsChecked] = useState(false);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -26,20 +23,12 @@ export const Auth = () => {
     setInputData({ ...inputData, [name]: value });
   };
 
-  const handleChange = () => {
-    if (inputData.email !== ADMIN.email) {
-      setIsChecked(isChecked);
-      return;
-    }
-    setIsChecked(!isChecked);
-  };
-
   const toAuth = () => {
     if (!inputData.email || !inputData.password) {
       setError(true);
       return;
     }
-    logIn(inputData, isChecked, navigate, dispatch);
+    logIn(inputData, navigate, dispatch);
   };
 
   return (
@@ -50,7 +39,6 @@ export const Auth = () => {
         <Heading $center>Авторизация</Heading>
         <SC.Auth>
           <Inputs onChange={onChange} />
-          <Checkbox isChecked={isChecked} handleChange={handleChange} />
           <Button onClick={toAuth}>Войти</Button>
         </SC.Auth>
         <p>

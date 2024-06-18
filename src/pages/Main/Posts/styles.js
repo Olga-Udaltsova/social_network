@@ -7,37 +7,24 @@ export const Posts = styled.div`
   font-size: 18px;
   border: 2px solid #5e5da6;
   border-radius: 10px;
+  text-align: center;
 `;
 
 export const Publication = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 10px;
-`;
-
-export const Information = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  text-align: start;
-  > div {
+  margin-bottom: 15px;
+  > div:first-child {
     display: flex;
-    gap: 15px;
-    align-items: center;
-    font-size: 19px;
+    gap: 20px;
   }
 `;
 
-export const Data = styled.div`
+export const Information = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 5px;
-`;
-
-export const ForFriend = styled.p`
-  font-size: 13px;
+  gap: 10px;
+  text-align: start;
+  font-size: 19px;
 `;
 
 export const Private = styled.button`
@@ -61,4 +48,9 @@ export const Private = styled.button`
       }
     }
   }
+`;
+
+export const Actions = styled.div`
+  display: flex;
+  gap: 10px;
 `;
