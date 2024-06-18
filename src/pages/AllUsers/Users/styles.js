@@ -32,3 +32,8 @@ export const Image = styled.img`
   width: 60px;
   cursor: pointer;
 `;
+
+export const Buttons = styled.div`
+  display: flex;
+  gap: 20px;
+`;

@@ -6,7 +6,7 @@ import {
   deleteFromFriends,
 } from "../../../redux/slices/friendsSlice";
 import { filterFriends } from "../../../helpers/filter";
-import myFriend from "../../../icons/friend.svg";
+import myFriend from "../../../icons/friend.png";
 import addUser from "../../../icons/addUser.png";
 import deleteUser from "../../../icons/deleteUser.png";
 import * as SC from "./styles";
@@ -40,14 +40,16 @@ export const Users = ({ person }) => {
             <SC.Text>{name}</SC.Text>
             <SC.Text $email>{email}</SC.Text>
           </div>
-          {inFriend && <img src={myFriend} alt="friend" />}
         </SC.Info>
       </SC.User>
-      <SC.Image
-        src={inFriend ? deleteUser : addUser}
-        alt="addFriend"
-        onClick={() => toggleFriend(person)}
-      />
+      <SC.Buttons>
+        {inFriend && <SC.Image src={myFriend} alt="friend" />}
+        <SC.Image
+          src={inFriend ? deleteUser : addUser}
+          alt="addFriend"
+          onClick={() => toggleFriend(person)}
+        />
+      </SC.Buttons>
     </SC.Div>
   );
 };
