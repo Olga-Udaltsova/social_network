@@ -8,6 +8,9 @@ export const Input = styled.input`
   border-bottom: 1px solid #69696b;
   background: transparent;
   font-size: 16px;
+  &::-ms-reveal {
+    display:none;
+  }
   &:focus {
     outline: none;
     border-bottom-color: #7c83c2;

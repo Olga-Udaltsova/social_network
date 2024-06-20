@@ -17,11 +17,27 @@ export const validate = (errorsFromFormValues, formValues, name, value) => {
       break;
 
     case "password":
-      const passwordRegex =
-        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/.test(value);
-      if (!passwordRegex) {
-        validate[name] = "Пароль не соответствует требованиям";
+      const uppercaseRegExp = /(?=.*?[A-Z])/.test(value);
+      const lowercaseRegExp = /(?=.*?[a-z])/.test(value);
+      const digitsRegExp = /(?=.*?[0-9])/.test(value);
+      const specialCharRegExp = /(?=.*?[#?!@$%^&*-])/.test(value);
+      const minLengthRegExp = /.{8,}/.test(value);
+      if (!minLengthRegExp) {
+        validate[name] = "minLengthRegExp";
       }
+      if (!uppercaseRegExp) {
+        validate[name] = "uppercaseRegExp";
+      }
+      if (!lowercaseRegExp) {
+        validate[name] = "lowercaseRegExp";
+      }
+      if (!digitsRegExp) {
+        validate[name] = "digitsRegExp";
+      }
+      if (!specialCharRegExp) {
+        validate[name] = "specialCharRegExp";
+      }
+
       if (!value) {
         validate[name] = "Пожалуйста, введите пароль";
       } else if (
