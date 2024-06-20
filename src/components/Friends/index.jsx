@@ -1,14 +1,13 @@
 import { useSelector } from "react-redux";
-import { Section } from "../../../components/ui/Section";
-import { NoContent } from "../../../components/ui/NoContent";
-import { filterFriends } from "../../../helpers/filter";
+import { Section } from "../ui/Section";
+import { NoContent } from "../ui/NoContent";
+import { filterFriends } from "../../helpers/filter";
 import { Friend } from "./Friend";
 import * as SC from "./styles";
 
-export const Friends = () => {
-  const { user } = useSelector((state) => state.currentUser);
+export const Friends = ({ currentUser }) => {
   const { friends } = useSelector((state) => state.friends);
-  const myFriends = filterFriends(user, friends);
+  const myFriends = filterFriends(currentUser, friends);
 
   return (
     <Section>

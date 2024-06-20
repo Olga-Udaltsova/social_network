@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { Container } from "../../components/ui/Container";
-import { Header } from "../../components/Header";
 import { Avatar } from "../../components/ui/Avatar";
 import { Comments } from "../../components/Comments";
 import { CommentBlock } from "../../components/CommentBlock";
@@ -19,22 +18,19 @@ export const DetailPost = () => {
     : undefined;
 
   return (
-    <>
-      <Header />
-      <Container>
-        <SC.Info>
-          <SC.User>
-            <Avatar $value="150px" $radius="60px" />
-            <p>{findedPost.user.name}</p>
-          </SC.User>
-          <p>{findedPost.post}</p>
-        </SC.Info>
-        {findedPost.comments && <Comments comments={findedPost.comments} />}
-        {!admin && <CommentBlock post={findedPost} />}
-        <SC.Links>
-          <Link to="/main">Обратно к публикациям</Link>
-        </SC.Links>
-      </Container>
-    </>
+    <Container>
+      <SC.Info>
+        <SC.User>
+          <Avatar $value="150px" $radius="60px" />
+          <p>{findedPost.user.name}</p>
+        </SC.User>
+        <p>{findedPost.post}</p>
+      </SC.Info>
+      {findedPost.comments && <Comments comments={findedPost.comments} />}
+      {!admin && <CommentBlock post={findedPost} />}
+      <SC.Links>
+        <Link to="/main">Обратно к публикациям</Link>
+      </SC.Links>
+    </Container>
   );
 };
