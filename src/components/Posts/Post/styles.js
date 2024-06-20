@@ -12,7 +12,7 @@ export const Post = styled.div`
   border: 2px solid #6261ba;
   border-radius: 15px;
   font-size: 20px;
-  word-break: break-all;
+  word-break: normal;
   > div {
     display: flex;
     align-items: center;

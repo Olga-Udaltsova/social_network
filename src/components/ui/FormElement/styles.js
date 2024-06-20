@@ -5,8 +5,10 @@ export const FormElement = styled.div`
   margin: 0 15px;
   Input:focus ~ Label,
   Input:valid ~ Label,
-  Input[type="email"]:user-invalid ~ Label {
+  Input[type="email"]:user-invalid ~ Label,
+  Input:not(:empty) ~ Label {
     top: -20px;
     color: #7c83c2;
   }
+  
 `;

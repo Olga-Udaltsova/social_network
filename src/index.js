@@ -1,20 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { persistor, store } from "./redux/store";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 import { Auth } from "./pages/Auth";
 import { Registration } from "./pages/Registration";
 import { AllUsers } from "./pages/AllUsers";
 import { Main } from "./pages/Main";
 import { MyPage } from "./pages/MyPage";
 import { DetailPost } from "./pages/DetailPost";
-import { persistor, store } from "./redux/store";
-import { Provider } from "react-redux";
 import { Publication } from "./pages/Publication";
+import { User } from "./pages/User";
 import { Loader } from "./components/ui/Loader";
-import { PersistGate } from "redux-persist/integration/react";
 import "./index.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 
 const router = createBrowserRouter([
   {
@@ -24,10 +25,6 @@ const router = createBrowserRouter([
   {
     path: "reg",
     element: <Registration />,
-  },
-  {
-    path: "/:id",
-    element: <DetailPost />,
   },
   {
     path: "main",
@@ -46,8 +43,16 @@ const router = createBrowserRouter([
         element: <Publication />,
       },
       {
+        path: "post/:id",
+        element: <DetailPost />,
+      },
+      {
         path: "users",
         element: <AllUsers />,
+      },
+      {
+        path: ":id",
+        element: <User />,
       },
     ],
   },

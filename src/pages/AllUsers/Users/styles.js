@@ -23,6 +23,10 @@ export const Info = styled.div`
   }
 `;
 
+export const ShowProfile = styled.div`
+  margin: 15px 0;
+`;
+
 export const Text = styled.p`
   text-align: center;
   font-size: ${(props) => (props.$email ? "15px" : "24px")};
@@ -36,4 +40,8 @@ export const Image = styled.img`
 export const Buttons = styled.div`
   display: flex;
   gap: 20px;
+`;
+
+export const Friend = styled.img`
+  width: 60px;
 `;

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Avatar } from "../../../components/ui/Avatar";
+import { Button } from "../../../components/ui/Button";
 import {
   addToFriend,
   deleteFromFriends,
@@ -41,12 +42,18 @@ export const Users = ({ person }) => {
             <SC.Text $email>{email}</SC.Text>
           </div>
         </SC.Info>
+        <SC.ShowProfile>
+          <Button to={`../${id}`}>Посмотреть профиль</Button>
+        </SC.ShowProfile>
       </SC.User>
       <SC.Buttons>
-        {inFriend && <SC.Image src={myFriend} alt="friend" />}
+        {inFriend && (
+          <SC.Friend src={myFriend} alt="friend" title="В друзьях" />
+        )}
         <SC.Image
           src={inFriend ? deleteUser : addUser}
           alt="addFriend"
+          title={inFriend ? "Удалить из друзей" : "Добавить в друзья"}
           onClick={() => toggleFriend(person)}
         />
       </SC.Buttons>
