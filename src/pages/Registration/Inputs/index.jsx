@@ -37,7 +37,6 @@ export const Inputs = ({
         <SC.Error>{errorsFromFormValues.email}</SC.Error>
       )}
     </FormElement>
-
     <div>
       <InputPassword
         autoComplete="off"
@@ -49,8 +48,8 @@ export const Inputs = ({
         htmlFor="password"
         text="Придумайте пароль: "
       />
-      {errorsFromFormValues && (
-        <SC.Error>{errorsFromFormValues.password}</SC.Error>
+      {errorsFromFormValues && errorsFromFormValues.password && (
+        <SC.Error>Пожалуйста, введите пароль</SC.Error>
       )}
     </div>
     <div>
@@ -64,13 +63,70 @@ export const Inputs = ({
         htmlFor="repeatPassword"
         text="Повторите пароль: "
       />
-
       {errorsFromFormValues && (
         <SC.Error>{errorsFromFormValues.repeatPassword}</SC.Error>
       )}
+
       <SC.Text>
-        Пароль должен содержать не менее 8 символов, заглавные и строчные буквы
-        латинского алфавита (A-z), цифры и спец.символы (!@#$_%^&*)
+        <li
+          className={
+            errorsFromFormValues && errorsFromFormValues.password
+              ? "error"
+              : null
+          }
+        >
+          Пароль должен содержать:
+        </li>
+        <li
+          className={
+            errorsFromFormValues &&
+            errorsFromFormValues.password === "minLengthRegExp"
+              ? "error"
+              : null
+          }
+        >
+          Минимум 8 символов;
+        </li>
+        <li
+          className={
+            errorsFromFormValues &&
+            errorsFromFormValues.password === "uppercaseRegExp"
+              ? "error"
+              : null
+          }
+        >
+          Хотя бы 1 заглавную букву;
+        </li>
+        <li
+          className={
+            errorsFromFormValues &&
+            errorsFromFormValues.password === "lowercaseRegExp"
+              ? "error"
+              : null
+          }
+        >
+          Хотя бы 1 строчную букву;
+        </li>
+        <li
+          className={
+            errorsFromFormValues &&
+            errorsFromFormValues.password === "digitsRegExp"
+              ? "error"
+              : null
+          }
+        >
+          Хотя бы 1 цифру;
+        </li>
+        <li
+          className={
+            errorsFromFormValues &&
+            errorsFromFormValues.password === "specialCharRegExp"
+              ? "error"
+              : null
+          }
+        >
+          Хотя бы 1 спец.символ (!@#$_%^&*).
+        </li>
       </SC.Text>
     </div>
   </>
