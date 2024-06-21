@@ -10,11 +10,6 @@ export const CommentBlock = ({ post }) => {
   const maxLength = 200;
   const dispatch = useDispatch();
 
-  const handleKeyDown = (e) => {
-    e.target.style.height = "initial";
-    e.target.style.height = `${e.target.scrollHeight}px`;
-  };
-
   const handleChange = (event) => {
     const inputText = event.target.value;
     if (inputText.length <= maxLength) {
@@ -31,15 +26,21 @@ export const CommentBlock = ({ post }) => {
     setComment("");
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      sendComment(comment);
+    }
+  };
+
   return (
     <SC.CommentBlock>
       <div>
         <SC.Comment
           placeholder="Оставить комментарий..."
-          onKeyDown={handleKeyDown}
           rows={2}
           value={comment}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
         />
       </div>
 
