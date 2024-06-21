@@ -39,6 +39,12 @@ const Publication = () => {
     setPost("");
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      toPublish(post);
+    }
+  };
+
   return (
     <Container>
       <SC.Content>
@@ -52,6 +58,7 @@ const Publication = () => {
             onChange={handleChange}
             placeholder="Введите текст"
             autoFocus
+            onKeyDown={handleKeyDown}
           />
           <SC.Limit>
             {maxLength - post.length}/{maxLength}
