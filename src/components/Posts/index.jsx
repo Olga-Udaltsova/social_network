@@ -29,7 +29,7 @@ export const Posts = ({ currentUser }) => {
       </SC.MyPosts>
 
       <h3>Посты только для друзей</h3>
-      {myFriends.listOfFriends?.find((item) => item.id === currentUser.id) ||
+      {myFriends?.listOfFriends?.find((item) => item.id === currentUser.id) ||
       user.id === currentUser.id ? (
         <SC.MyPosts>
           {myPrivatePosts.length !== 0 ? (

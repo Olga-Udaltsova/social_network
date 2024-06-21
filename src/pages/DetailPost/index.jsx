@@ -7,7 +7,7 @@ import { CommentBlock } from "../../components/CommentBlock";
 import { getAllPosts } from "../../helpers/getAllPosts";
 import * as SC from "./styles";
 
-export const DetailPost = () => {
+const DetailPost = () => {
   const { id } = useParams();
   const { admin } = useSelector((state) => state.currentUser);
   const { privatePosts, publicPosts } = useSelector((state) => state.posts);
@@ -34,3 +34,5 @@ export const DetailPost = () => {
     </Container>
   );
 };
+
+export default DetailPost;

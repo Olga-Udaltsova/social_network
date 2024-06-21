@@ -10,7 +10,7 @@ import background from "../../images/background.png";
 import * as SC from "./styles";
 import "react-toastify/dist/ReactToastify.css";
 
-export const Publication = () => {
+const Publication = () => {
   const [post, setPost] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const dispatch = useDispatch();
@@ -87,3 +87,5 @@ export const Publication = () => {
     </Container>
   );
 };
+
+export default Publication;

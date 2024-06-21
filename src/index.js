@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -7,15 +7,16 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { Auth } from "./pages/Auth";
 import { Registration } from "./pages/Registration";
-import { AllUsers } from "./pages/AllUsers";
-import { Main } from "./pages/Main";
-import { MyPage } from "./pages/MyPage";
-import { DetailPost } from "./pages/DetailPost";
-import { Publication } from "./pages/Publication";
-import { User } from "./pages/User";
 import { Loader } from "./components/ui/Loader";
 import "./index.css";
 import App from "./App";
+
+const Main = lazy(() => import("./pages/Main"));
+const AllUsers = lazy(() => import("./pages/AllUsers"));
+const MyPage = lazy(() => import("./pages/MyPage"));
+const DetailPost = lazy(() => import("./pages/DetailPost"));
+const Publication = lazy(() => import("./pages/Publication"));
+const User = lazy(() => import("./pages/User"));
 
 const router = createBrowserRouter([
   {
@@ -32,27 +33,51 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Main />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Main />
+          </Suspense>
+        ),
       },
       {
         path: "my",
-        element: <MyPage />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <MyPage />
+          </Suspense>
+        ),
       },
       {
         path: "publish",
-        element: <Publication />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Publication />
+          </Suspense>
+        ),
       },
       {
         path: "post/:id",
-        element: <DetailPost />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <DetailPost />
+          </Suspense>
+        ),
       },
       {
         path: "users",
-        element: <AllUsers />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <AllUsers />
+          </Suspense>
+        ),
       },
       {
         path: ":id",
-        element: <User />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <User />
+          </Suspense>
+        ),
       },
     ],
   },

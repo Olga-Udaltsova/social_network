@@ -11,7 +11,7 @@ import { modifyData } from "../../helpers/modifyData";
 import { useDebounce } from "../../hooks/useDebounce";
 import * as SC from "./styles";
 
-export const AllUsers = () => {
+const AllUsers = () => {
   const { user } = useSelector((state) => state.currentUser);
   const [people, setPeople] = useState(
     JSON.parse(localStorage.getItem(USERS)).filter(
@@ -60,3 +60,5 @@ export const AllUsers = () => {
     </Container>
   );
 };
+
+export default AllUsers;

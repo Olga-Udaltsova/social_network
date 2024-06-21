@@ -5,7 +5,7 @@ import { Info } from "../../components/Info";
 import { Friends } from "../../components/Friends";
 import { Posts } from "../../components/Posts";
 
-export const MyPage = () => {
+const MyPage = () => {
   const { user } = useSelector((state) => state.currentUser);
   return (
     <Container>
@@ -18,3 +18,5 @@ export const MyPage = () => {
     </Container>
   );
 };
+
+export default MyPage;
