@@ -5,14 +5,16 @@ import { Heading } from "../../components/ui/Heading";
 import { Info } from "../../components/Info";
 import { Friends } from "../../components/Friends";
 import { Posts } from "../../components/Posts";
+import { Link } from "react-router-dom";
 
-export const User = () => {
+const User = () => {
   const { id } = useParams();
   const people = JSON.parse(localStorage.getItem(USERS));
   const findedPerson = people.find((item) => item.id === Number(id));
 
   return (
     <Container>
+      <Link to={"../users"}>Вернуться к пользователям</Link>
       <Heading>Профиль пользователя {findedPerson.name}</Heading>
       <Info currentUser={findedPerson} />
       <Heading>Друзья</Heading>
@@ -22,3 +24,5 @@ export const User = () => {
     </Container>
   );
 };
+
+export default User;

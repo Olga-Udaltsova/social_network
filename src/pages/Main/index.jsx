@@ -11,7 +11,7 @@ import { getFilteredPosts } from "../../helpers/getFilteredPosts";
 import { ITEMS_PER_PAGE } from "../../constants";
 import * as SC from "./styles";
 
-export const Main = () => {
+const Main = () => {
   const { admin, user } = useSelector((state) => state.currentUser);
   const { friends } = useSelector((state) => state.friends);
   const { privatePosts, publicPosts } = useSelector((state) => state.posts);
@@ -42,3 +42,5 @@ export const Main = () => {
     </Container>
   );
 };
+
+export default Main;

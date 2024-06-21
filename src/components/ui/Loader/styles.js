@@ -25,11 +25,11 @@ export const Border = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background: rgb(63, 249, 220);
+  background: rgb(50, 11, 53);
   background: linear-gradient(
     0deg,
-    rgba(63, 249, 220, 0.1) 33%,
-    rgba(63, 249, 220, 1) 100%
+    rgba(185, 147, 214, 0.1) 33%,
+    rgba(140, 155, 189, 1) 100%
   );
   animation: ${spin} 0.8s linear 0s infinite;
 `;
