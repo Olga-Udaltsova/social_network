@@ -20,7 +20,7 @@ const AllUsers = () => {
   );
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
-  const { data } = modifyData(people, currentPage);
+  const { data } = modifyData(people, currentPage, "NAME_ASC");
   const { debouncedValue } = useDebounce(search, 500);
 
   useEffect(() => {
