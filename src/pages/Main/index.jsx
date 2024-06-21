@@ -20,11 +20,26 @@ const Main = () => {
     : getFilteredPosts(user, friends, privatePosts, publicPosts);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const { data } = modifyData(posts, currentPage);
+  const [sortType, setSortType] = useState("DATE_DESC");
+  const { data } = modifyData(posts, currentPage, sortType);
+
+  const changeSortType = (type) => {
+    setSortType(type);
+    modifyData(posts, currentPage, type);
+  };
 
   return (
     <Container>
       <Heading $center>Посты</Heading>
+      <SC.List
+        onChange={(e) => {
+          changeSortType(e.target.value);
+        }}
+        value={sortType}
+      >
+        <option value="DATE_ASC">Показать старые посты</option>
+        <option value="DATE_DESC">Показать новые посты</option>
+      </SC.List>
       <SC.PostsSection>
         {data.length !== 0 ? (
           data.map((post) => <Posts key={post.id} publication={post} />)
