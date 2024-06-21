@@ -14,7 +14,9 @@ const User = () => {
 
   return (
     <Container>
-      <Link to={"../users"}>Вернуться к пользователям</Link>
+      <div style={{ fontSize: "18px", paddingBottom: "17px" }}>
+        <Link to={"../users"}>Вернуться к пользователям</Link>
+      </div>
       <Heading>Профиль пользователя {findedPerson.name}</Heading>
       <Info currentUser={findedPerson} />
       <Heading>Друзья</Heading>
