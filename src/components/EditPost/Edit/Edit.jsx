@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Modal } from "../../ui/Modal";
-import { Button } from "../../ui/Button";
+import { Modal } from "../../ui/Modal/Modal";
+import { Button } from "../../ui/Button/Button";
+import { ImageButton } from "../../ui/ImageButton/ImageButton";
 import { editPost } from "../../../redux/slices/postsSlice";
-import { ImageButton } from "../../ui/ImageButton";
 import close from "../../../icons/close.svg";
 import * as SC from "./styles";
 

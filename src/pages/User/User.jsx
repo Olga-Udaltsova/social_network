@@ -1,11 +1,11 @@
-import { useParams } from "react-router-dom";
-import { USERS } from "../../constants";
-import { Container } from "../../components/ui/Container";
-import { Heading } from "../../components/ui/Heading";
-import { Info } from "../../components/Info";
-import { Friends } from "../../components/Friends";
-import { Posts } from "../../components/Posts";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { USERS } from "../../constants/constants";
+import { Container } from "../../components/ui/Container/Container";
+import { Heading } from "../../components/ui/Heading/Heading";
+import { Info } from "../../components/Info/Info";
+import { Friends } from "../../components/Friends/Friends";
+import { Posts } from "../../components/Posts/Posts";
 
 const User = () => {
   const { id } = useParams();

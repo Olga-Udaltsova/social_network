@@ -1,4 +1,4 @@
-import { getAllPosts } from "./getAllPosts";
+import { getAllPosts } from "../helpers/getAllPosts";
 
 describe("Проверяем работу функции получения всех постов", () => {
   test("Если нет публичных постов - выводятся приватные", () => {

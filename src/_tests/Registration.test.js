@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import { Inputs } from ".";
+import { Inputs } from "../pages/Registration/Inputs/Inputs";
 
 test("Правильное заполнение формы регистрации", () => {
   const { container } = render(

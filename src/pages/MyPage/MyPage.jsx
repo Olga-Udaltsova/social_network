@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-import { Container } from "../../components/ui/Container";
-import { Heading } from "../../components/ui/Heading";
-import { Info } from "../../components/Info";
-import { Friends } from "../../components/Friends";
-import { Posts } from "../../components/Posts";
+import { Container } from "../../components/ui/Container/Container";
+import { Heading } from "../../components/ui/Heading/Heading";
+import { Info } from "../../components/Info/Info";
+import { Friends } from "../../components/Friends/Friends";
+import { Posts } from "../../components/Posts/Posts";
 
 const MyPage = () => {
   const { user } = useSelector((state) => state.currentUser);

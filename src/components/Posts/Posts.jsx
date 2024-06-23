@@ -1,15 +1,15 @@
 import { useSelector } from "react-redux";
-import { NoContent } from "../ui/NoContent";
-import { Post } from "./Post";
+import { NoContent } from "../ui/NoContent/NoContent";
+import { Post } from "./Post/Post";
 import { filterPosts, filterFriends } from "../../helpers/filter";
 import * as SC from "./styles";
 
 export const Posts = ({ currentUser }) => {
-  const { publicPosts, privatePosts } = useSelector((state) => state.posts);
+  const { user } = useSelector((state) => state.currentUser);
+  const { privatePosts, publicPosts } = useSelector((state) => state.posts);
+  const { friends } = useSelector((state) => state.friends);
   const myPublicPosts = filterPosts(currentUser, publicPosts);
   const myPrivatePosts = filterPosts(currentUser, privatePosts);
-  const { user } = useSelector((state) => state.currentUser);
-  const { friends } = useSelector((state) => state.friends);
   const myFriends = filterFriends(user, friends);
   return (
     <SC.SectionPosts>

@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { Container } from "../../components/ui/Container";
-import { Heading } from "../../components/ui/Heading";
-import { NoContent } from "../../components/ui/NoContent";
-import { Posts } from "./Posts";
-import { Pagination } from "../../components/Pagination";
+import { Container } from "../../components/ui/Container/Container";
+import { Heading } from "../../components/ui/Heading/Heading";
+import { NoContent } from "../../components/ui/NoContent/NoContent";
+import { Pagination } from "../../components/Pagination/Pagination";
+import { Posts } from "./Posts/Posts";
 import { modifyData } from "../../helpers/modifyData";
 import { getAllPosts } from "../../helpers/getAllPosts";
 import { getFilteredPosts } from "../../helpers/getFilteredPosts";
-import { ITEMS_PER_PAGE } from "../../constants";
+import { ITEMS_PER_PAGE } from "../../constants/constants";
 import * as SC from "./styles";
 
 const Main = () => {
@@ -31,15 +31,17 @@ const Main = () => {
   return (
     <Container>
       <Heading $center>Посты</Heading>
-      <SC.List
-        onChange={(e) => {
-          changeSortType(e.target.value);
-        }}
-        value={sortType}
-      >
-        <option value="DATE_ASC">Показать старые посты</option>
-        <option value="DATE_DESC">Показать новые посты</option>
-      </SC.List>
+      {data.length !== 0 && (
+        <SC.List
+          onChange={(e) => {
+            changeSortType(e.target.value);
+          }}
+          value={sortType}
+        >
+          <option value="DATE_ASC">Показать старые посты</option>
+          <option value="DATE_DESC">Показать новые посты</option>
+        </SC.List>
+      )}
       <SC.PostsSection>
         {data.length !== 0 ? (
           data.map((post) => <Posts key={post.id} publication={post} />)

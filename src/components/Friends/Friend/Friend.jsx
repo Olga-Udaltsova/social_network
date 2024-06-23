@@ -1,4 +1,4 @@
-import { Avatar } from "../../ui/Avatar";
+import { Avatar } from "../../ui/Avatar/Avatar";
 import * as SC from "./styles";
 
 export const Friend = ({ friend }) => {

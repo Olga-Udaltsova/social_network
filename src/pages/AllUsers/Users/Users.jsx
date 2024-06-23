@@ -1,11 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Avatar } from "../../../components/ui/Avatar";
-import { Button } from "../../../components/ui/Button";
-import {
-  addToFriend,
-  deleteFromFriends,
-} from "../../../redux/slices/friendsSlice";
+import { Avatar } from "../../../components/ui/Avatar/Avatar";
+import { Button } from "../../../components/ui/Button/Button";
+import { addToFriend, deleteFromFriends } from "../../../redux/slices/friendsSlice";
 import { filterFriends } from "../../../helpers/filter";
 import myFriend from "../../../icons/friend.png";
 import addUser from "../../../icons/addUser.png";

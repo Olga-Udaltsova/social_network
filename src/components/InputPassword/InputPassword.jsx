@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { FormElement } from "../ui/FormElement";
-import { Input } from "../ui/Input";
-import { Label } from "../ui/Label";
+import { FormElement } from "../ui/FormElement/FormElement";
+import { Input } from "../ui/Input/Input";
+import { Label } from "../ui/Label/Label";
 import show from "../../icons/show.png";
 import noShow from "../../icons/noShow.png";
 import * as SC from "./styles";

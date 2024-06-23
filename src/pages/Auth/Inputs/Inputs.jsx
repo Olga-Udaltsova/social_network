@@ -1,7 +1,7 @@
-import { FormElement } from "../../../components/ui/FormElement";
-import { Input } from "../../../components/ui/Input";
-import { InputPassword } from "../../../components/InputPassword";
-import { Label } from "../../../components/ui/Label";
+import { FormElement } from "../../../components/ui/FormElement/FormElement";
+import { Input } from "../../../components/ui/Input/Input";
+import { InputPassword } from "../../../components/InputPassword/InputPassword";
+import { Label } from "../../../components/ui/Label/Label";
 
 export const Inputs = ({ onChange }) => (
   <>

@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Container } from "../../components/ui/Container";
-import { Button } from "../../components/ui/Button";
-import { Modal } from "../../components/ui/Modal";
-import { Heading } from "../../components/ui/Heading";
+import { Container } from "../../components/ui/Container/Container";
+import { Button } from "../../components/ui/Button/Button";
+import { Modal } from "../../components/ui/Modal/Modal";
+import { Heading } from "../../components/ui/Heading/Heading";
 import { validate } from "../../helpers/validate";
 import { register } from "../../helpers/register";
-import { Inputs } from "./Inputs";
-import { VALUES } from "../../constants";
+import { Inputs } from "./Inputs/Inputs";
+import { VALUES } from "../../constants/constants";
 import form from "../../images/registration_form.svg";
 import * as SC from "./styles";
 

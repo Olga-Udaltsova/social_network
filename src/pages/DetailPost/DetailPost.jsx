@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { Container } from "../../components/ui/Container";
-import { Avatar } from "../../components/ui/Avatar";
-import { Comments } from "../../components/Comments";
-import { CommentBlock } from "../../components/CommentBlock";
+import { Container } from "../../components/ui/Container/Container";
+import { Avatar } from "../../components/ui/Avatar/Avatar";
+import { Comments } from "../../components/Comments/Comments";
+import { CommentBlock } from "../../components/CommentBlock/CommentBlock";
 import { getAllPosts } from "../../helpers/getAllPosts";
 import * as SC from "./styles";
 

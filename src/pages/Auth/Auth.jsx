@@ -1,11 +1,11 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
-import { Container } from "../../components/ui/Container";
-import { Button } from "../../components/ui/Button";
-import { Heading } from "../../components/ui/Heading";
-import { Modal } from "../../components/ui/Modal";
-import { Inputs } from "./Inputs";
+import { Container } from "../../components/ui/Container/Container";
+import { Button } from "../../components/ui/Button/Button";
+import { Heading } from "../../components/ui/Heading/Heading";
+import { Modal } from "../../components/ui/Modal/Modal";
+import { Inputs } from "./Inputs/Inputs";
 import { logIn } from "../../helpers/logIn";
 import welcome from "../../images/welcome.png";
 import * as SC from "./styles";
