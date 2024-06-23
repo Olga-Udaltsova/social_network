@@ -1,4 +1,4 @@
-import { USERS, ADMIN } from "../constants";
+import { USERS, ADMIN } from "../constants/constants";
 import { login, loginAsAdmin } from "../redux/slices/userSlice";
 
 export const logIn = (inputData, navigate, dispatch) => {

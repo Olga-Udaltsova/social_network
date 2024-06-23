@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import { Section } from "../ui/Section";
-import { NoContent } from "../ui/NoContent";
+import { Section } from "../ui/Section/Section";
+import { NoContent } from "../ui/NoContent/NoContent";
 import { filterFriends } from "../../helpers/filter";
-import { Friend } from "./Friend";
+import { Friend } from "./Friend/Friend";
 import * as SC from "./styles";
 
 export const Friends = ({ currentUser }) => {

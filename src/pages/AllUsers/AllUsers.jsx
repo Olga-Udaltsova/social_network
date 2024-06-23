@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Container } from "../../components/ui/Container";
-import { Heading } from "../../components/ui/Heading";
-import { Users } from "./Users";
-import { NoContent } from "../../components/ui/NoContent";
-import { Search } from "../../components/Search";
-import { Pagination } from "../../components/Pagination";
-import { ITEMS_PER_PAGE, USERS } from "../../constants";
-import { modifyData } from "../../helpers/modifyData";
 import { useDebounce } from "../../hooks/useDebounce";
+import { Container } from "../../components/ui/Container/Container";
+import { Heading } from "../../components/ui/Heading/Heading";
+import { NoContent } from "../../components/ui/NoContent/NoContent";
+import { Search } from "../../components/Search/Search";
+import { Pagination } from "../../components/Pagination/Pagination";
+import { Users } from "./Users/Users";
+import { ITEMS_PER_PAGE, USERS } from "../../constants/constants";
+import { modifyData } from "../../helpers/modifyData";
 import * as SC from "./styles";
 
 const AllUsers = () => {

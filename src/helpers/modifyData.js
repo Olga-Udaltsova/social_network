@@ -1,4 +1,4 @@
-import { ITEMS_PER_PAGE } from "../constants";
+import { ITEMS_PER_PAGE } from "../constants/constants";
 
 export const modifyData = (items, currentPage, type) => {
   const totalItems = items.length;

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ImageButton } from "../ui/ImageButton";
-import { Edit } from "./Edit";
+import { ImageButton } from "../ui/ImageButton/ImageButton";
+import { Edit } from "./Edit/Edit";
 import iconEdit from "../../icons/edit.svg";
 
 export const EditPost = ({ post }) => {

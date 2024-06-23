@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { Slide, ToastContainer, toast } from "react-toastify";
-import { Container } from "../../components/ui/Container";
-import { Heading } from "../../components/ui/Heading";
-import { Button } from "../../components/ui/Button";
 import { useDispatch, useSelector } from "react-redux";
+import { Slide, ToastContainer, toast } from "react-toastify";
 import { addToPrivate, addToPublic } from "../../redux/slices/postsSlice";
+import { Container } from "../../components/ui/Container/Container";
+import { Heading } from "../../components/ui/Heading/Heading";
+import { Button } from "../../components/ui/Button/Button";
 import publish from "../../images/publication.png";
 import background from "../../images/background.png";
-import * as SC from "./styles";
 import "react-toastify/dist/ReactToastify.css";
+import * as SC from "./styles";
 
 const Publication = () => {
   const [post, setPost] = useState("");

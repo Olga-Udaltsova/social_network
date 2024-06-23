@@ -1,7 +1,7 @@
-import { FormElement } from "../../../components/ui/FormElement";
-import { Label } from "../../../components/ui/Label";
-import { Input } from "../../../components/ui/Input";
-import { InputPassword } from "../../../components/InputPassword";
+import { FormElement } from "../../../components/ui/FormElement/FormElement";
+import { Label } from "../../../components/ui/Label/Label";
+import { Input } from "../../../components/ui/Input/Input";
+import { InputPassword } from "../../../components/InputPassword/InputPassword";
 import * as SC from "./styles";
 
 export const Inputs = ({

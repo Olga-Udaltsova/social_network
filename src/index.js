@@ -5,18 +5,18 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { persistor, store } from "./redux/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import { Auth } from "./pages/Auth";
-import { Registration } from "./pages/Registration";
-import { Loader } from "./components/ui/Loader";
+import { Auth } from "./pages/Auth/Auth";
+import { Registration } from "./pages/Registration/Registration";
+import { Loader } from "./components/ui/Loader/Loader";
 import "./index.css";
 import App from "./App";
 
-const Main = lazy(() => import("./pages/Main"));
-const AllUsers = lazy(() => import("./pages/AllUsers"));
-const MyPage = lazy(() => import("./pages/MyPage"));
-const DetailPost = lazy(() => import("./pages/DetailPost"));
-const Publication = lazy(() => import("./pages/Publication"));
-const User = lazy(() => import("./pages/User"));
+const Main = lazy(() => import("./pages/Main/Main"));
+const AllUsers = lazy(() => import("./pages/AllUsers/AllUsers"));
+const MyPage = lazy(() => import("./pages/MyPage/MyPage"));
+const DetailPost = lazy(() => import("./pages/DetailPost/DetailPost"));
+const Publication = lazy(() => import("./pages/Publication/Publication"));
+const User = lazy(() => import("./pages/User/User"));
 
 const router = createBrowserRouter([
   {

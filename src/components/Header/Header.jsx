@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Container } from "../ui/Container";
-import { Button } from "../ui/Button";
+import { Container } from "../ui/Container/Container";
+import { Button } from "../ui/Button/Button";
 import { logout } from "../../redux/slices/userSlice";
 import * as SC from "./styles";
 

@@ -1,4 +1,4 @@
-import { Date } from "../ui/Date";
+import { Date } from "../ui/Date/Date";
 import * as SC from "./styles";
 
 export const Comments = ({ comments }) => (

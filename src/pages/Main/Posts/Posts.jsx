@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
-import { Avatar } from "../../../components/ui/Avatar";
-import { DeletePost } from "../../../components/DeletePost";
-import { EditPost } from "../../../components/EditPost";
-import { CommentBlock } from "../../../components/CommentBlock";
-import { Comments } from "../../../components/Comments";
-import { ReadMore } from "../../../components/ReadMore";
-import { Date } from "../../../components/ui/Date";
+import { Avatar } from "../../../components/ui/Avatar/Avatar";
+import { DeletePost } from "../../../components/DeletePost/DeletePost";
+import { EditPost } from "../../../components/EditPost/EditPost";
+import { CommentBlock } from "../../../components/CommentBlock/CommentBlock";
+import { Comments } from "../../../components/Comments/Comments";
+import { ReadMore } from "../../../components/ReadMore/ReadMore";
+import { Date } from "../../../components/ui/Date/Date";
 import isPrivate from "../../../icons/isPrivate.png";
 import * as SC from "./styles";
 

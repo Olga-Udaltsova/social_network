@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
-import { Header } from "./components/Header";
-import { NoContent } from "./components/ui/NoContent";
+import { Header } from "./components/Header/Header";
+import { NoContent } from "./components/ui/NoContent/NoContent";
 import "./App.css";
 
 function App() {

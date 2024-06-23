@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import { EditPost } from "../../EditPost";
-import { DeletePost } from "../../DeletePost";
-import { ReadMore } from "../../ReadMore";
-import { Date } from "../../ui/Date";
+import { EditPost } from "../../EditPost/EditPost";
+import { DeletePost } from "../../DeletePost/DeletePost";
+import { ReadMore } from "../../ReadMore/ReadMore";
+import { Date } from "../../ui/Date/Date";
 import * as SC from "./styles";
 
 export const Post = ({ myPost, currentUser }) => {

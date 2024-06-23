@@ -1,4 +1,4 @@
-import { USERS } from "../constants";
+import { USERS } from "../constants/constants";
 
 export const register = (formValues, setSuccessfulRegistration) => {
   const users = JSON.parse(localStorage.getItem(USERS));
