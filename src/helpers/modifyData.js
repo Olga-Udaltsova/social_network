@@ -16,14 +16,13 @@ export const modifyData = (items, currentPage, type) => {
 
 export const onSort = (items, type) => {
   switch (type) {
-    case "NAME_ASC":
-      items.sort((a, b) => (a["name"] > b["name"] ? 1 : -1));
-      break;
     case "DATE_ASC":
       items.sort((a, b) => (a["date"] > b["date"] ? 1 : -1));
       break;
     case "DATE_DESC":
       items.sort((a, b) => (b["date"] > a["date"] ? 1 : -1));
       break;
+    default:
+      items.sort((a, b) => (a["name"] > b["name"] ? 1 : -1));
   }
 };

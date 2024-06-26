@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
   privatePosts: null,
@@ -11,7 +12,7 @@ export const postsSlice = createSlice({
   reducers: {
     addToPrivate: (state, action) => {
       const newPost = { ...action.payload };
-      newPost.id = new Date().getTime();
+      newPost.id = uuidv4();
       newPost.date = new Date().toLocaleString();
       state.privatePosts = state.privatePosts
         ? [...state.privatePosts, newPost]
@@ -19,7 +20,7 @@ export const postsSlice = createSlice({
     },
     addToPublic: (state, action) => {
       const newPost = { ...action.payload };
-      newPost.id = new Date().getTime();
+      newPost.id = uuidv4();
       newPost.date = new Date().toLocaleString();
       state.publicPosts = state.publicPosts
         ? [...state.publicPosts, newPost]
@@ -55,7 +56,7 @@ export const postsSlice = createSlice({
     addComment: (state, action) => {
       const comment = { ...action.payload };
       const newComment = {
-        id: new Date().getTime(),
+        id: uuidv4(),
         date: new Date().toLocaleString(),
         user: comment.user,
         comment: comment.comment,

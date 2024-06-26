@@ -1,8 +1,9 @@
 import { USERS } from "../constants/constants";
+import { v4 as uuidv4 } from "uuid";
 
 export const register = (formValues, setSuccessfulRegistration) => {
   const users = JSON.parse(localStorage.getItem(USERS));
-  const userId = Date.now();
+  const userId = uuidv4();
   const newUser = { id: userId, ...formValues };
 
   if (!users) {

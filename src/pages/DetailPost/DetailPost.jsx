@@ -13,9 +13,7 @@ const DetailPost = () => {
   const { privatePosts, publicPosts } = useSelector((state) => state.posts);
 
   const posts = getAllPosts(privatePosts, publicPosts);
-  const findedPost = posts
-    ? posts.find((item) => item.id === Number(id))
-    : undefined;
+  const findedPost = posts ? posts.find((item) => item.id === id) : undefined;
 
   return (
     <Container>

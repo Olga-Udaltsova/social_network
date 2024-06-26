@@ -10,7 +10,7 @@ import { Posts } from "../../components/Posts/Posts";
 const User = () => {
   const { id } = useParams();
   const people = JSON.parse(localStorage.getItem(USERS));
-  const findedPerson = people.find((item) => item.id === Number(id));
+  const findedPerson = people.find((item) => item.id === id);
 
   return (
     <Container>
