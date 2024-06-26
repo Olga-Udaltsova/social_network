@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { Modal } from "../../ui/Modal/Modal";
 import { Button } from "../../ui/Button/Button";
 import { ImageButton } from "../../ui/ImageButton/ImageButton";
@@ -21,6 +22,7 @@ export const Edit = ({ values, setEdit }) => {
       return;
     }
     dispatch(editPost(modifiedPost));
+    toast.success("Пост отредактирован");
     setEdit(false);
   };
 
