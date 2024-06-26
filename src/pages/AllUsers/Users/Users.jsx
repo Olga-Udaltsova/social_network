@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { Avatar } from "../../../components/ui/Avatar/Avatar";
 import { Button } from "../../../components/ui/Button/Button";
 import { addToFriend, deleteFromFriends } from "../../../redux/slices/friendsSlice";
@@ -24,9 +25,11 @@ export const Users = ({ person }) => {
     if (!friend) {
       dispatch(addToFriend({ user, person }));
       setInFriend(true);
+      toast.success(`Пользователь ${person.name} добавлен в друзья`);
       return;
     }
     dispatch(deleteFromFriends({ user, person }));
+    toast.error(`Пользователь ${person.name} удален из друзей`);
     setInFriend(false);
   };
   return (

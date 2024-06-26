@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { addComment } from "../../redux/slices/postsSlice";
 import iconSend from "../../icons/send.png";
 import * as SC from "./styles";
@@ -23,6 +24,7 @@ export const CommentBlock = ({ post }) => {
       return;
     }
     dispatch(addComment({ user, post, comment }));
+    toast.success("Комментарий опубликован!");
     setComment("");
   };
 

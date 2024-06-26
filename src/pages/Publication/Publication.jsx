@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Slide, ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { addToPrivate, addToPublic } from "../../redux/slices/postsSlice";
 import { Container } from "../../components/ui/Container/Container";
 import { Heading } from "../../components/ui/Heading/Heading";
 import { Button } from "../../components/ui/Button/Button";
 import publish from "../../images/publication.png";
 import background from "../../images/background.png";
-import "react-toastify/dist/ReactToastify.css";
 import * as SC from "./styles";
 
 const Publication = () => {
@@ -80,17 +79,6 @@ const Publication = () => {
           </SC.Buttons>
         </SC.Publication>
       </SC.Content>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        closeOnClick
-        pauseOnFocusLoss
-        pauseOnHover={false}
-        draggable
-        theme="light"
-        transition={Slide}
-      />
     </Container>
   );
 };
