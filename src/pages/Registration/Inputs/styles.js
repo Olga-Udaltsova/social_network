@@ -5,7 +5,7 @@ export const Error = styled.p`
 `;
 
 export const Text = styled.ul`
-  margin: 5px 20px;
+  margin-top: 5px;
   font-size: 10px;
   color: #9b97a1;
   text-align: left;

@@ -12,7 +12,6 @@ export const Button = styled(NavLink)`
   box-shadow: 0 0 40px 40px rgba(98, 97, 186, 0.7) inset,
     0 0 0 0 rgba(98, 97, 186, 1);
   transition: all 150ms ease-in-out;
-  cursor: pointer;
   &:hover {
     box-shadow: 0 0 10px 0 rgba(98, 97, 186, 0.7) inset,
       0 0 10px 4px rgba(98, 97, 186, 1);
